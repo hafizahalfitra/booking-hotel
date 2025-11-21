@@ -5,8 +5,10 @@ import GoogleProvider from "next-auth/providers/google";
 const handler = NextAuth({
     providers: [
         GoogleProvider({
-            clientId: process.env.GOOGLE_CLIENT_ID!,      // ✅ BENAR - ! 
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET!, // ✅ BENAR - !
+            clientId: 
+            process.env.GOOGLE_CLIENT_ID!,  
+            clientSecret: 
+            process.env.GOOGLE_CLIENT_SECRET!, 
         })
     ],
 });

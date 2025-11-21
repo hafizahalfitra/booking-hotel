@@ -15,7 +15,8 @@ const Navlink = () => {
         <div className={clsx("w-full md:block md:w-auto", {
             "hidden": !open
         })}>
-            <ul className="flex flex-col font-semibold text-sm uppercase p-4 mt-4 rounded-sm
+            <ul className=
+            "flex flex-col font-semibold text-sm uppercase p-4 mt-4 rounded-sm
             bg-gray-50 md:flex-row md:items-center md:space-x-10 md:p-0 md:mt-0 md:border-0
             md:bg-white">
                 <li>
