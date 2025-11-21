@@ -59,6 +59,7 @@ const Footer = () => {
                         </p>
                         <form action="" className="mt-5">
                             <div className="mb-5">
+<<<<<<< HEAD
                                 <input
                                     type="text"
                                     name="email"
@@ -73,6 +74,14 @@ const Footer = () => {
                             >
                                 Subscribe
                             </button>
+=======
+                                <input type="text" name="email" className="w-full p-3 rounded-sm bg-white"
+                                    placeholder="hafizahalfitra@gmail.com" />
+                            </div>
+                            <button className="bg-[#C2A895] p-3 font-bold text-white w-full text-center
+                            rounded-sm hover:bg-[#b39683]">
+                                Subscribe</button>
+>>>>>>> d3afa1582b8e4608c53603e695e6a1340757e4eb
                         </form>
                     </div>
                 </div>

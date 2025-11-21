@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Hero from "@/components/hero";
 import Main from "@/components/main";
 export default function Home() {
@@ -12,5 +13,14 @@ export default function Home() {
         <Main />
       </div>
     </div>
+=======
+export default function Home() {
+  return (
+    <div className="">
+      <h1>Home Page</h1>
+    </div>
+
+    <div></div> 
+>>>>>>> d3afa1582b8e4608c53603e695e6a1340757e4eb
   );
 } 
