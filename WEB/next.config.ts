@@ -1,20 +1,17 @@
-<<<<<<< HEAD
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  // Semua properti konfigurasi Next.js Anda ditempatkan di sini.
+  
+  // Menggabungkan konfigurasi 'experimental' dari versi HEAD
   experimental: {
     serverActions: {
       allowedOrigins: ['localhost:3000'],
     },
   },
-}
-
-export default nextConfig
-=======
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+  
+  // Anda bisa menambahkan konfigurasi lain di sini,
+  // misalnya: output: 'standalone', images: { domains: [...] }
 };
 
 export default nextConfig;
->>>>>>> d3afa1582b8e4608c53603e695e6a1340757e4eb

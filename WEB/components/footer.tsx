@@ -15,7 +15,8 @@ const Footer = () => {
                         </p>
                     </div>
                     <div>
-                        <div className="flex-gap-20">
+                        {/* Perbaiki sintaks TailwindCSS ini jika 'flex-gap-20' bukan kelas yang valid. Mungkin maksudnya 'gap-20' dalam flex container, atau 'space-x-20' */}
+                        <div className="flex-gap-20"> 
                             <div className="flex-1 md:flex-none">
                                 <h4 className="mb-8 text-xl font-semibold text-white">Links</h4>
                                 <ul className="list-item space-y-5 text-gray-400">
@@ -59,7 +60,7 @@ const Footer = () => {
                         </p>
                         <form action="" className="mt-5">
                             <div className="mb-5">
-<<<<<<< HEAD
+                                {/* Gabungan: Menggunakan format Input yang ringkas + suppressHydrationWarning */}
                                 <input
                                     type="text"
                                     name="email"
@@ -69,19 +70,12 @@ const Footer = () => {
                                 />
                             </div>
                             <button
-                                className="bg-[#C2A895] p-3 font-bold text-white w-full text-center rounded-sm"
-                                suppressHydrationWarning  
+                                // Gabungan: Menggunakan styling tombol yang lebih baik + hover dari Incoming
+                                className="bg-[#C2A895] p-3 font-bold text-white w-full text-center rounded-sm hover:bg-[#b39683]"
+                                suppressHydrationWarning
                             >
                                 Subscribe
                             </button>
-=======
-                                <input type="text" name="email" className="w-full p-3 rounded-sm bg-white"
-                                    placeholder="hafizahalfitra@gmail.com" />
-                            </div>
-                            <button className="bg-[#C2A895] p-3 font-bold text-white w-full text-center
-                            rounded-sm hover:bg-[#b39683]">
-                                Subscribe</button>
->>>>>>> d3afa1582b8e4608c53603e695e6a1340757e4eb
                         </form>
                     </div>
                 </div>
