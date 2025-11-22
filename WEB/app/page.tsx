@@ -8,7 +8,7 @@ export default function Home() {
       <div className="mt-16">
         <div className="text-center">
           <h1 className="text-4xl font-bold uppercase">Kamar & Harga</h1>
-          <p className="py-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque, possimus.</p>
+          <p className="py-3">Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda.</p>
         </div>
         <Main />
       </div>

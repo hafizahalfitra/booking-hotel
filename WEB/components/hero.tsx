@@ -12,7 +12,7 @@ const Hero = () => {
             <div className="relative flex flex-col justify-center items-center h-full text-center">
                 <h1 className="text-7xl font-extrabold leading-tight mb-3 capitalize">Pesan Kamar
                     Mewah Anda</h1>
-                <p className="text-xl text-gray-300 mb-8">Dapatkan Penawaran Spesial Hanya Untuk Anda Hari Ini.</p>
+                <p className="text-xl text-gray-300 mb-8">Dapatkan Penawaran Spesial Hotel Bandar Lampung Hanya Untuk Anda Hari Ini.</p>
                 <div className="flex gap-5">
                     <Link href="/room" className="bg-[#C2A895] text-white hover:bg-[#b39683]
                     py-2.5 px-6 md:px-10 text-lg font-semibold hover:scale-105 hover:shadow-lg"
