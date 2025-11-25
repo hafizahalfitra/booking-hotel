@@ -11,8 +11,9 @@ export default function SignInPage() {
                 <div className="text-center">
                     <a
                         href="http://localhost:3001/api/auth/signin"
-                        className="text-blue-600 hover:underline"
-                    >
+                        className="text-blue-600 hover:underline" >
+                    </a>
+                        <a>
                         Or sign in directly via backend
                     </a>
                 </div>

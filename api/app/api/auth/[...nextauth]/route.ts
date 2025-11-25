@@ -1,4 +1,5 @@
-// BOOKING-HOTEL/app/api/auth/[...nextauth]/route.ts
+// HAPUS BARIS INI!
+
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -9,9 +10,8 @@ const handler = NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
         }),
     ],
-    // Tambahkan secret key di sini jika belum ada
+    // 🌟 Tambahkan secret key yang diambil dari .env.local 🌟
     secret: process.env.NEXTAUTH_SECRET,
 });
 
-// Wajib: Export GET dan POST handler dari NextAuth
 export { handler as GET, handler as POST };
