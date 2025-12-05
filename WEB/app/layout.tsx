@@ -49,3 +49,23 @@ export default function RootLayout({
     </html>
   );
 }
+
+// app/layout.tsx
+import { SessionProvider } from "next-auth/react";
+import "./globals.css";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <SessionProvider basePath="/api/auth">
+          {children}
+        </SessionProvider>
+      </body>
+    </html>
+  );
+}
