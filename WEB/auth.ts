@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
+import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-const handler = NextAuth({
+export const authOptions: NextAuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -10,21 +10,11 @@ const handler = NextAuth({
     ],
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        async redirect({ url, baseUrl }) {
-            // Redirect ke frontend (port 3000) setelah login berhasil
-            return process.env.FRONTEND_URL || "http://localhost:3000";
-        },
         async session({ session, token }) {
-            // Tambahkan token ke session jika diperlukan
             if (token) {
                 session.user.id = token.sub;
             }
             return session;
         },
     },
-    pages: {
-        signIn: '/auth/signin', // Custom signin page di frontend
-    },
-});
-
-export { handler as GET, handler as POST };
+};
