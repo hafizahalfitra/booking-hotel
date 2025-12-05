@@ -1,21 +1,17 @@
-// api/app/api/auth/[...nextauth]/route.ts
+// HAPUS BARIS INI!
+
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    }),
-  ],
-  secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async redirect({ url, baseUrl }) {
-      // Setelah login, redirect ke halaman utama frontend
-      return baseUrl; // baseUrl adalah NEXTAUTH_URL, yang kita set ke http://localhost:3000
-    },
-  },
+    providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID!,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+        }),
+    ],
+    // 🌟 Tambahkan secret key yang diambil dari .env.local 🌟
+    secret: process.env.NEXTAUTH_SECRET,
 });
 
 export { handler as GET, handler as POST };
