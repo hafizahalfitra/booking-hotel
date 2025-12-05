@@ -3,6 +3,8 @@ import { Raleway } from "next/font/google";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer";
 import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -27,6 +29,22 @@ export default function RootLayout({
           <Navbar />
         <main className="bg-gray-50 min-h-screen">{children}</main>
         <Footer />
+      </body>
+    </html>
+  );
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body>
+        <SessionProvider basePath="/api/auth">
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );
