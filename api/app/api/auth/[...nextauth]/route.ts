@@ -11,19 +11,21 @@ const handler = NextAuth({
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async redirect({ url, baseUrl }) {
-            // Redirect ke frontend (port 3000) setelah login berhasil
+            // Redirect ke frontend setelah login
             return process.env.FRONTEND_URL || "http://localhost:3000";
         },
-        async session({ session, token }) {
-            // Tambahkan token ke session jika diperlukan
-            if (token) {
-                session.user.id = token.sub;
-            }
-            return session;
-        },
     },
-    pages: {
-        signIn: '/auth/signin', // Custom signin page di frontend
+    // Penting untuk CORS
+    cookies: {
+        sessionToken: {
+            name: `next-auth.session-token`,
+            options: {
+                httpOnly: true,
+                sameSite: 'lax',
+                path: '/',
+                secure: process.env.NODE_ENV === 'production',
+            },
+        },
     },
 });
 
