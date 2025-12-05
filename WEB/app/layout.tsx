@@ -1,29 +1,33 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/footer";
 import "./globals.css";
-import { Providers } from "./providers";
-import Navbar from "@/components/navbar/navbar"; 
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({
+  variable: "--font-raleway",
+  subsets: ["latin"],
+});
+
 
 export const metadata: Metadata = {
-    title: "Your App",
-    description: "Your app description",
+  title: "Home",
+  description: "Online Booking Hotel Bandar Lampung",
 };
 
 export default function RootLayout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang="en">
-            <body className={inter.className}>
-                <Providers>
-                    <Navbar />
-                    {children}
-                </Providers>
-            </body>
-        </html>
-    );
+  return (
+    <html lang="en">
+      <body
+        className={`${raleway.variable} antialiased`}>
+          <Navbar />
+        <main className="bg-gray-50 min-h-screen">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

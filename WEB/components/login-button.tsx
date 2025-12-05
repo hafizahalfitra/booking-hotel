@@ -1,11 +1,11 @@
 'use client';
 
-import { signIn } from "next-auth/react";
 import { FaG } from "react-icons/fa6";
 
 export const LoginGoogleButton = () => {
     const handleSignIn = () => {
-        signIn("google", { callbackUrl: "/" });
+        // Redirect ke backend untuk login
+        window.location.href = "http://localhost:3001/api/auth/signin";
     };
 
     return (
