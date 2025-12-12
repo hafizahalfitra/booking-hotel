@@ -1,3 +1,5 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- CreateTable
 CREATE TABLE "Hotel" (
     "id" TEXT NOT NULL,
@@ -31,3 +33,4 @@ CREATE TABLE "Room" (
 
 -- AddForeignKey
 ALTER TABLE "Room" ADD CONSTRAINT "Room_hotelId_fkey" FOREIGN KEY ("hotelId") REFERENCES "Hotel"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
