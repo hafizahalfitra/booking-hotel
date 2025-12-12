@@ -1,14 +1,48 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// prisma/schema.prisma
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
-generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
-}
-
+// 1. Database connection setting
 datasource db {
   provider = "postgresql"
+}
+
+// 2. Prisma Client setting
+generator client {
+  provider = "prisma-client-js"
+}
+
+// --- 3. Definisi Model (Skema) ---
+
+// Model untuk Hotel
+model Hotel {
+  id              String   @id @default(uuid())
+  nama            String
+  alamat          String
+  deskripsi       String?
+  rating          Float? // Misal: 1.0 sampai 5.0
+  thumbnailUrl    String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Hubungan ke Room (Satu Hotel punya banyak Kamar)
+  rooms           Room[]
+}
+
+// Model untuk Kamar (Room)
+model Room {
+  id              String    @id @default(uuid())
+  tipe            String // Contoh: "Standard", "Deluxe", "Suite"
+  hargaPerMalam   Int
+  kapasitas       Int // Maksimal orang
+  ukuran          String? // Contoh: "30 sqm"
+  deskripsi       String?
+  isAvailable     Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  // Hubungan ke Hotel (Banyak Kamar milik Satu Hotel)
+  hotel           Hotel     @relation(fields: [hotelId], references: [id])
+  hotelId         String // Foreign Key
+  
+  // Array untuk menyimpan URL foto-foto kamar
+  fotoUrls        String[]
 }
