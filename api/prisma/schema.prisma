@@ -1,0 +1,23 @@
+// 1. BLOK GENERATOR (Wajib untuk menghasilkan Prisma Client)
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 2. BLOK DATASOURCE (Wajib untuk koneksi database)
+datasource db {
+  provider = "postgresql" 
+  url      = env("DATABASE_URL") // Ini adalah baris yang mungkin berwarna merah
+}
+
+// 3. MODEL ANDA
+model Room {
+  id          Int      @id @default(autoincrement())
+  roomNumber  String   @unique
+  roomType    String
+  price       Float
+  isAvailable Boolean  @default(true)
+  capacity    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
