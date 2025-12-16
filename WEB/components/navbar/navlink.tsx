@@ -88,26 +88,6 @@ const Navlink = () => {
             </Link>
           </li>
 
-          <li>
-            <Link
-              href="/admin/dashboard"
-              className="block py-2 px-3 text-gray-800 hover:bg-gray-100
-                    rounded-sm md:hover:bg-transparent md:p-0"
-            >
-              Dashboard
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="/admin/room"
-              className="block py-2 px-3 text-gray-800 hover:bg-gray-100
-                    rounded-sm md:hover:bg-transparent md:p-0"
-            >
-              Manage Room
-            </Link>
-          </li>
-
           {/* 👉 Bagian Sign In yang diubah */}
           <li className="pt-4 md:pt-0">
             {user ? (
