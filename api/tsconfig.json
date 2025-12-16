@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,8 +22,20 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      // Pastikan ada koma (,) di akhir baris ini karena ada entri lain di bawahnya
+      "@lib/*": [
+        "./lib/*"
+      ],
+      // Koma di akhir baris ini WAJIB jika ada entri di bawahnya
+      "@/utils/*": [
+        "./utils/*"
+      ],
+      // Baris terakhir TIDAK BOLEH memiliki koma (,)
+      "@/*": [
+        "./*"
+      ]
     }
   },
   "include": [
@@ -30,5 +46,7 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

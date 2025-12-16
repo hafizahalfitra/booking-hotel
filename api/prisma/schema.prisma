@@ -1,48 +1,23 @@
-// prisma/schema.prisma
-
-// 1. Database connection setting
-datasource db {
-  provider = "postgresql"
-}
-
-// 2. Prisma Client setting
+// 1. BLOK GENERATOR
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
-// --- 3. Definisi Model (Skema) ---
-
-// Model untuk Hotel
-model Hotel {
-  id              String   @id @default(uuid())
-  nama            String
-  alamat          String
-  deskripsi       String?
-  rating          Float? // Misal: 1.0 sampai 5.0
-  thumbnailUrl    String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-
-  // Hubungan ke Room (Satu Hotel punya banyak Kamar)
-  rooms           Room[]
+// 2. BLOK DATASOURCE (HARUS KOSONG DARI URL DAN SCHEMA)
+datasource db {
+  provider = "postgresql" 
+  // HAPUS BARIS INI: url = env("DATABASE_URL")
+  // HAPUS BARIS INI: schema = ".."
 }
 
-// Model untuk Kamar (Room)
+// 3. MODEL ANDA
 model Room {
-  id              String    @id @default(uuid())
-  tipe            String // Contoh: "Standard", "Deluxe", "Suite"
-  hargaPerMalam   Int
-  kapasitas       Int // Maksimal orang
-  ukuran          String? // Contoh: "30 sqm"
-  deskripsi       String?
-  isAvailable     Boolean   @default(true)
-  createdAt       DateTime  @default(now())
-  updatedAt       DateTime  @updatedAt
-
-  // Hubungan ke Hotel (Banyak Kamar milik Satu Hotel)
-  hotel           Hotel     @relation(fields: [hotelId], references: [id])
-  hotelId         String // Foreign Key
-  
-  // Array untuk menyimpan URL foto-foto kamar
-  fotoUrls        String[]
+  id          Int      @id @default(autoincrement())
+  roomNumber  String   @unique
+  roomType    String
+  price       Float
+  isAvailable Boolean  @default(true)
+  capacity    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
