@@ -3,7 +3,7 @@
 // SOLUSI PERBAIKAN IMPORT: 
 // Ganti path relatif menjadi Path Alias (@/lib/prisma)
 // Anda mungkin perlu menyesuaikan @/lib/prisma jika prisma.ts Anda ada di lokasi yang berbeda.
-import prisma  from '@/lib/prisma'; // Ganti dengan path alias yang benar
+import prisma from '@/utils/prisma';// Ganti dengan path alias yang benar
 
 import { NextResponse } from 'next/server';
 
