@@ -58,15 +58,17 @@ const Navlink = () => {
             </Link>
           </li>
 
-          <li>
-            <Link
-              href="/room"
-              className="block py-2 px-3 text-gray-800 hover:bg-gray-100
-                    rounded-sm md:hover:bg-transparent md:p-0"
-            >
-              Rooms
-            </Link>
-          </li>
+          {user && (
+            <li>
+              <Link
+                href="/room"
+                className="block py-2 px-3 text-gray-800 hover:bg-gray-100
+                      rounded-sm md:hover:bg-transparent md:p-0"
+              >
+                Rooms
+              </Link>
+            </li>
+          )}
 
           <li>
             <Link
@@ -78,15 +80,17 @@ const Navlink = () => {
             </Link>
           </li>
 
-          <li>
-            <Link
-              href="/myreservation"
-              className="block py-2 px-3 text-gray-800 hover:bg-gray-100
-                    rounded-sm md:hover:bg-transparent md:p-0"
-            >
-              My Reservation
-            </Link>
-          </li>
+          {user && (
+            <li>
+              <Link
+                href="/myreservation"
+                className="block py-2 px-3 text-gray-800 hover:bg-gray-100
+                      rounded-sm md:hover:bg-transparent md:p-0"
+              >
+                My Reservation
+              </Link>
+            </li>
+          )}
 
           {/* 👉 Bagian Sign In yang diubah */}
           <li className="pt-4 md:pt-0">
