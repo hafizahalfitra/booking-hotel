@@ -3,11 +3,9 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// 2. BLOK DATASOURCE (HARUS KOSONG DARI URL DAN SCHEMA)
+// 2. BLOK DATASOURCE
 datasource db {
   provider = "postgresql" 
-  // HAPUS BARIS INI: url = env("DATABASE_URL")
-  // HAPUS BARIS INI: schema = ".."
 }
 
 // 3. MODEL ANDA
