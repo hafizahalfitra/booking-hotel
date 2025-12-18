@@ -1,21 +1,40 @@
 // 1. BLOK GENERATOR
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 // 2. BLOK DATASOURCE
 datasource db {
-  provider = "postgresql" 
+  provider = "postgresql"
+  url      = env("DATABASE_URL") 
 }
 
-// 3. MODEL ANDA
+// 3. MODEL HOTEL (Jangan lupa ini biar ada Hotel-nya)
+model Hotel {
+  id           Int      @id @default(autoincrement())
+  nama         String
+  alamat       String
+  deskripsi    String?
+  rating       Float?
+  thumbnailUrl String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  
+  rooms        Room[]
+}
+
+// 4. MODEL ROOM (Udah gw tambahin relasi ke Hotel)
 model Room {
-  id          Int      @id @default(autoincrement())
-  roomNumber  String   @unique
-  roomType    String
-  price       Float
-  isAvailable Boolean  @default(true)
-  capacity    Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  roomNumber  String   @unique
+  roomType    String
+  price       Float
+  isAvailable Boolean  @default(true)
+  capacity    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relasi ke Hotel
+  hotelId     Int
+  hotel       Hotel    @relation(fields: [hotelId], references: [id])
 }
