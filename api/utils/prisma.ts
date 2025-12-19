@@ -1,7 +1,6 @@
 // utils/prisma.ts
 
 import { PrismaClient } from '@prisma/client';
-import { PrismaPg } from '@prisma/adapter-pg';
 
 // Tambahkan definisi global khusus untuk Next.js
 declare global {
@@ -9,13 +8,8 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-// Buat adapter untuk PostgreSQL (required di Prisma 7)
-const adapter = new PrismaPg({
-  connectionString: process.env.DATABASE_URL
-});
-
-// Gunakan instansi global jika sudah ada, atau buat yang baru dengan adapter
-const prisma = global.prisma || new PrismaClient({ adapter });
+// Gunakan instansi global jika sudah ada, atau buat yang baru
+const prisma = global.prisma || new PrismaClient();
 
 // Jika environment bukan produksi (dev), simpan instansi ke global
 if (process.env.NODE_ENV !== 'production') {
