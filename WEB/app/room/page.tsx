@@ -47,7 +47,6 @@ export default function RoomPage() {
             const response = await fetch(`http://localhost:3001/api/rooms`);
             const data = await response.json();
 
-            // Filter berdasarkan hotelId jika ada
             const filteredRooms = hotelId
                 ? data.filter((room: Room) => room.hotel?.id === parseInt(hotelId))
                 : data;
@@ -60,10 +59,8 @@ export default function RoomPage() {
         }
     };
 
-    const handleBooking = async (room: Room) => {
+    const handleBooking = (room: Room) => {
         setSelectedRoom(room);
-
-        // Prefill user data if available
         const userStr = localStorage.getItem('user');
         if (userStr) {
             const user = JSON.parse(userStr);
@@ -78,7 +75,6 @@ export default function RoomPage() {
             return;
         }
 
-        // Ambil data user dari localStorage
         const userStr = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
@@ -87,8 +83,6 @@ export default function RoomPage() {
             router.push('/login');
             return;
         }
-
-        const user = JSON.parse(userStr);
 
         setSubmitting(true);
         try {
@@ -113,21 +107,8 @@ export default function RoomPage() {
                 const data = await response.json();
                 setBookingSuccessData(data);
                 setShowSuccessModal(true);
-
-                // Reset form
-                setSelectedRoom(null);
-                setCheckIn('');
-                setCheckOut('');
-                setJumlahTamu(1);
-                setNama('');
-                setEmail('');
-                setNoHp('');
+                resetForm();
                 fetchRooms();
-
-                // Optional: Auto redirect after few seconds, or let user click button
-                // setTimeout(() => {
-                //      router.push('/transaksi');
-                // }, 3000);
             } else {
                 const error = await response.json();
                 alert(`Pemesanan gagal: ${error.error}`);
@@ -140,11 +121,22 @@ export default function RoomPage() {
         }
     };
 
+    const resetForm = () => {
+        setSelectedRoom(null);
+        setCheckIn('');
+        setCheckOut('');
+        setJumlahTamu(1);
+        setNama('');
+        setEmail('');
+        setNoHp('');
+    };
+
     const calculateDays = () => {
         if (!checkIn || !checkOut) return 0;
         const start = new Date(checkIn);
         const end = new Date(checkOut);
-        return Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+        const diff = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+        return diff > 0 ? diff : 0;
     };
 
     const calculateTotal = () => {
@@ -155,44 +147,44 @@ export default function RoomPage() {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <p className="text-xl">Loading...</p>
+                <p className="text-xl animate-pulse">Loading...</p>
             </div>
         );
     }
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <h1 className="text-4xl font-bold mb-8 text-center">Pilih Kamar</h1>
+            <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Pilih Kamar</h1>
 
             {rooms.length === 0 ? (
                 <p className="text-center text-gray-500">Tidak ada kamar tersedia</p>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {rooms.map((room) => (
-                        <div key={room.id} className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                        <div key={room.id} className="border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white">
                             <div className="p-6">
                                 <div className="mb-4">
-                                    <h2 className="text-2xl font-bold">{room.roomType}</h2>
+                                    <h2 className="text-2xl font-bold text-gray-800">{room.roomType}</h2>
                                     <p className="text-gray-600">Nomor: {room.roomNumber}</p>
                                     {room.hotel && (
-                                        <p className="text-sm text-gray-500 mt-2">{room.hotel.nama}</p>
+                                        <p className="text-sm text-blue-500 font-medium mt-1 uppercase tracking-wide">{room.hotel.nama}</p>
                                     )}
                                 </div>
 
-                                <div className="space-y-2 mb-4">
-                                    <p className="flex items-center gap-2">
-                                        <span className="font-semibold">Kapasitas:</span>
-                                        <span>{room.capacity} orang</span>
+                                <div className="space-y-2 mb-6">
+                                    <p className="flex justify-between">
+                                        <span className="text-gray-600">Kapasitas:</span>
+                                        <span className="font-semibold">{room.capacity} orang</span>
                                     </p>
-                                    <p className="flex items-center gap-2">
-                                        <span className="font-semibold">Harga:</span>
-                                        <span className="text-xl text-blue-600">
-                                            Rp {room.price.toLocaleString('id-ID')}/malam
+                                    <p className="flex justify-between items-baseline">
+                                        <span className="text-gray-600">Harga:</span>
+                                        <span className="text-xl font-bold text-blue-600">
+                                            Rp {room.price.toLocaleString('id-ID')}
                                         </span>
                                     </p>
-                                    <p className="flex items-center gap-2">
-                                        <span className="font-semibold">Status:</span>
-                                        <span className={room.isAvailable ? 'text-green-600' : 'text-red-600'}>
+                                    <p className="flex justify-between">
+                                        <span className="text-gray-600">Status:</span>
+                                        <span className={`font-bold ${room.isAvailable ? 'text-green-600' : 'text-red-600'}`}>
                                             {room.isAvailable ? 'Tersedia' : 'Tidak Tersedia'}
                                         </span>
                                     </p>
@@ -201,9 +193,9 @@ export default function RoomPage() {
                                 <button
                                     onClick={() => handleBooking(room)}
                                     disabled={!room.isAvailable}
-                                    className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                                    className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all active:scale-95"
                                 >
-                                    {room.isAvailable ? 'Pesan Sekarang' : 'Tidak Tersedia'}
+                                    {room.isAvailable ? 'Pesan Sekarang' : 'Habis Terjual'}
                                 </button>
                             </div>
                         </div>
@@ -211,151 +203,151 @@ export default function RoomPage() {
                 </div>
             )}
 
-            {/* Modal Booking */}
+            {/* Modal Booking - FIXED SCROLLABLE */}
             {selectedRoom && (
-                <div className="fixed inset-0 backdrop-blur-md flex items-center justify-center z-50 p-4">
-                    <div className="bg-[#C2A895] rounded-lg max-w-md w-full p-6">
-                        <h2 className="text-2xl font-bold mb-4">Pesan Kamar</h2>
+                <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
+                    <div className="bg-[#C2A895] rounded-2xl max-w-md w-full my-auto shadow-2xl relative flex flex-col max-h-[90vh]">
+                        {/* Header Modal */}
+                        <div className="p-6 border-b border-black/10 flex justify-between items-center">
+                            <h2 className="text-2xl font-bold text-gray-900">Konfirmasi Pesanan</h2>
+                            <button onClick={resetForm} className="text-gray-700 hover:text-black text-2xl">×</button>
+                        </div>
 
-                        <div className="space-y-4">
-                            <div>
-                                <p className="font-semibold">{selectedRoom.roomType}</p>
-                                <p className="text-gray-600">Nomor: {selectedRoom.roomNumber}</p>
-                                <p className="text-blue-600">Rp {selectedRoom.price.toLocaleString('id-ID')}/malam</p>
+                        {/* Body Modal - Area Scroll */}
+                        <div className="p-6 overflow-y-auto space-y-4 flex-grow">
+                            <div className="bg-white/30 p-4 rounded-xl">
+                                <p className="font-bold text-lg">{selectedRoom.roomType}</p>
+                                <p className="text-sm text-gray-800">Room #{selectedRoom.roomNumber}</p>
+                                <p className="text-blue-900 font-bold">Rp {selectedRoom.price.toLocaleString('id-ID')}/malam</p>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Check-in</label>
+                                    <input
+                                        type="date"
+                                        value={checkIn}
+                                        onChange={(e) => setCheckIn(e.target.value)}
+                                        min={new Date().toISOString().split('T')[0]}
+                                        className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Check-out</label>
+                                    <input
+                                        type="date"
+                                        value={checkOut}
+                                        onChange={(e) => setCheckOut(e.target.value)}
+                                        min={checkIn || new Date().toISOString().split('T')[0]}
+                                        className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                    />
+                                </div>
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium mb-1">Check-in</label>
-                                <input
-                                    type="date"
-                                    value={checkIn}
-                                    onChange={(e) => setCheckIn(e.target.value)}
-                                    min={new Date().toISOString().split('T')[0]}
-                                    className="w-full border rounded-lg px-3 py-2"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium mb-1">Check-out</label>
-                                <input
-                                    type="date"
-                                    value={checkOut}
-                                    onChange={(e) => setCheckOut(e.target.value)}
-                                    min={checkIn || new Date().toISOString().split('T')[0]}
-                                    className="w-full border rounded-lg px-3 py-2"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium mb-1">Jumlah Tamu</label>
+                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Jumlah Tamu</label>
                                 <input
                                     type="number"
                                     value={jumlahTamu}
                                     onChange={(e) => setJumlahTamu(parseInt(e.target.value))}
                                     min="1"
                                     max={selectedRoom.capacity}
-                                    className="w-full border rounded-lg px-3 py-2"
+                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
                                 />
-                                <p className="text-xs text-gray-500 mt-1">Maksimal: {selectedRoom.capacity} orang</p>
+                                <p className="text-[10px] text-gray-800 mt-1 italic">*Maksimal {selectedRoom.capacity} orang</p>
                             </div>
 
+                            <hr className="border-black/10" />
+
                             <div>
-                                <label className="block text-sm font-medium mb-1">Nama Lengkap</label>
+                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Nama Pemesan</label>
                                 <input
                                     type="text"
                                     value={nama}
                                     onChange={(e) => setNama(e.target.value)}
-                                    placeholder="Nama Lengkap"
-                                    className="w-full border rounded-lg px-3 py-2"
+                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                    placeholder="Sesuai KTP"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium mb-1">Email</label>
+                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Email</label>
                                 <input
                                     type="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="email@contoh.com"
-                                    className="w-full border rounded-lg px-3 py-2"
+                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium mb-1">No. HP</label>
+                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">No. WhatsApp</label>
                                 <input
                                     type="tel"
                                     value={noHp}
                                     onChange={(e) => setNoHp(e.target.value)}
-                                    placeholder="08xxxxxxxxxx"
-                                    className="w-full border rounded-lg px-3 py-2"
+                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                    placeholder="0812..."
                                 />
                             </div>
 
-                            {checkIn && checkOut && (
-                                <div className="bg-gray-100 p-3 rounded-lg">
-                                    <p className="text-sm text-gray-600">Lama menginap: {calculateDays()} malam</p>
-                                    <p className="text-lg font-bold text-blue-600">
-                                        Total: Rp {calculateTotal().toLocaleString('id-ID')}
-                                    </p>
+                            {checkIn && checkOut && calculateDays() > 0 && (
+                                <div className="bg-blue-900/10 p-4 rounded-xl border border-blue-900/20">
+                                    <div className="flex justify-between text-sm mb-1">
+                                        <span>Durasi:</span>
+                                        <span>{calculateDays()} Malam</span>
+                                    </div>
+                                    <div className="flex justify-between font-bold text-lg text-blue-900">
+                                        <span>Total:</span>
+                                        <span>Rp {calculateTotal().toLocaleString('id-ID')}</span>
+                                    </div>
                                 </div>
                             )}
+                        </div>
 
-                            <div className="flex gap-2">
-                                <button
-                                    onClick={() => {
-                                        setSelectedRoom(null);
-                                        setCheckIn('');
-                                        setCheckOut('');
-                                        setJumlahTamu(1);
-                                        setNama('');
-                                        setEmail('');
-                                        setNoHp('');
-                                    }}
-                                    className="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-400"
-                                    disabled={submitting}
-                                >
-                                    Batal
-                                </button>
-                                <button
-                                    onClick={submitBooking}
-                                    disabled={submitting || !checkIn || !checkOut}
-                                    className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
-                                >
-                                    {submitting ? 'Memproses...' : 'Konfirmasi'}
-                                </button>
-                            </div>
+                        {/* Footer Modal - Tetap di Bawah */}
+                        <div className="p-6 border-t border-black/10 flex gap-3">
+                            <button
+                                onClick={resetForm}
+                                className="flex-1 py-3 px-4 rounded-xl bg-black/10 text-gray-900 font-semibold hover:bg-black/20 transition-colors"
+                                disabled={submitting}
+                            >
+                                Batal
+                            </button>
+                            <button
+                                onClick={submitBooking}
+                                disabled={submitting || !checkIn || !checkOut || calculateDays() === 0}
+                                className="flex-[2] py-3 px-4 rounded-xl bg-blue-700 text-white font-bold hover:bg-blue-800 disabled:bg-blue-400 transition-all shadow-lg"
+                            >
+                                {submitting ? 'Mengirim...' : 'Konfirmasi Pesanan'}
+                            </button>
                         </div>
                     </div>
                 </div>
             )}
+
             {/* Success Modal */}
             {showSuccessModal && bookingSuccessData && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
-                    <div className="bg-white rounded-2xl max-w-sm w-full p-8 shadow-2xl scale-100 transform transition-all text-center">
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
+                    <div className="bg-white rounded-3xl max-w-sm w-full p-8 shadow-2xl text-center">
                         <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                             <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-
-                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Booking Berhasil!</h3>
-                        <p className="text-gray-600 mb-6">
-                            Terima kasih telah melakukan pemesanan.
-                        </p>
-
-                        <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                            <p className="text-sm text-gray-500 mb-1">Total Pembayaran</p>
-                            <p className="text-2xl font-bold text-blue-600">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-2">Pemesanan Sukses!</h3>
+                        <p className="text-gray-500 mb-6 text-sm">Nomor pesanan Anda telah dicatat di sistem kami.</p>
+                        <div className="bg-gray-50 rounded-2xl p-4 mb-8">
+                            <p className="text-[10px] uppercase font-bold text-gray-400 mb-1 tracking-widest">Total Bayar</p>
+                            <p className="text-3xl font-black text-blue-600">
                                 Rp {bookingSuccessData.totalPrice.toLocaleString('id-ID')}
                             </p>
                         </div>
-
                         <button
                             onClick={() => router.push('/transaksi')}
-                            className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-blue-500/30"
+                            className="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 active:scale-95"
                         >
-                            Lihat Pesanan Saya
+                            Cek Status Transaksi
                         </button>
                     </div>
                 </div>
