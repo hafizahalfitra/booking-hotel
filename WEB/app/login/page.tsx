@@ -41,7 +41,7 @@ export default function LoginPage() {
               setUser(data.user);
 
               // notifikasi cakep
-              toast.success("Berhasil login! Selamat datang 👋", {
+              toast.success("Berhasil login! Selamat datang", {
                 style: {
                   borderRadius: "10px",
                   padding: "12px 16px",
