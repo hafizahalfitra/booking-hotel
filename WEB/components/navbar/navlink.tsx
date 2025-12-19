@@ -4,14 +4,19 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoClose, IoMenu } from "react-icons/io5";
-import { useAuth } from "../../src/store/auth"; // ⬅️ DIUBAH: pakai relative path
+import { useAuth } from "../../src/store/auth"; //
 
 const Navlink = () => {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
   const { user, setUser } = useAuth();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogout = () => {
     setUser(null);
@@ -58,7 +63,7 @@ const Navlink = () => {
             </Link>
           </li>
 
-          {user && (
+          {mounted && user && (
             <li>
               <Link
                 href="/room"
@@ -80,10 +85,10 @@ const Navlink = () => {
             </Link>
           </li>
 
-          {user && (
+          {mounted && user && (
             <li>
               <Link
-                href="/myreservation"
+                href="/transaksi"
                 className="block py-2 px-3 text-gray-800 hover:bg-gray-100
                       rounded-sm md:hover:bg-transparent md:p-0"
               >
@@ -92,9 +97,13 @@ const Navlink = () => {
             </li>
           )}
 
-          {/* 👉 Bagian Sign In yang diubah */}
+          {/* Bagian Sign In yang diubah */}
           <li className="pt-4 md:pt-0">
-            {user ? (
+            {!mounted ? (
+              <div className="py-2.5 px-6 bg-gray-200 text-transparent rounded-sm inline-block">
+                Loading
+              </div>
+            ) : user ? (
               <div className="flex items-center gap-3">
                 <button
                   type="button"
