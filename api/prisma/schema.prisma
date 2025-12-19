@@ -37,4 +37,27 @@ model Room {
   // Relasi ke Hotel
   hotelId     Int
   hotel       Hotel    @relation(fields: [hotelId], references: [id])
+  
+  // Relasi ke Transaksi
+  transaksi   Transaksi[]
+}
+
+// 5. MODEL TRANSAKSI (Untuk pemesanan room)
+model Transaksi {
+  id          Int      @id @default(autoincrement())
+  checkIn     DateTime
+  checkOut    DateTime
+  jumlahTamu  Int
+  nama        String
+  email       String
+  noHp        String
+  tipeKamar   String
+  totalPrice  Float
+  status      String   @default("pending") // pending, confirmed, cancelled
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relasi ke Room
+  roomId      Int
+  room        Room     @relation(fields: [roomId], references: [id])
 }
