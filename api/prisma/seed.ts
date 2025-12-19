@@ -1,5 +1,3 @@
-// cara run npx ts-node prisma/seed.ts
-
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -100,7 +98,7 @@ async function main() {
         }
     ];
 
-    console.log(' Mulai seeding database...');
+    console.log('🌱 Mulai seeding database...');
 
     for (const hotelData of hotels) {
         const { rooms, ...hotelInfo } = hotelData;
@@ -117,15 +115,15 @@ async function main() {
             }
         });
 
-        console.log(` Hotel "${hotel.nama}" berhasil ditambahkan dengan ${hotel.rooms.length} kamar`);
+        console.log(`✅ Hotel "${hotel.nama}" berhasil ditambahkan dengan ${hotel.rooms.length} kamar`);
     }
 
-    console.log(' Seeding selesai!');
+    console.log('🎉 Seeding selesai!');
 }
 
 main()
     .catch((e) => {
-        console.error('Error saat seeding:', e);
+        console.error('❌ Error saat seeding:', e);
         process.exit(1);
     })
     .finally(async () => {
