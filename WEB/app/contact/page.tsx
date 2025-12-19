@@ -3,19 +3,19 @@ import React from 'react';
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-800">
-      
+
 
       {/* --- HERO SECTION --- */}
       <section className="bg-gray-50 py-16 px-6 text-center border-b">
         <h2 className="text-4xl font-extrabold uppercase tracking-tight mb-4">Hubungi Kami </h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda. 
+          Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda.
         </p>
       </section>
 
       {/* --- MAIN CONTENT --- */}
       <main className="max-w-6xl mx-auto py-16 px-6 grid md:grid-cols-2 gap-16">
-        
+
         {/* Kolom Kiri: Informasi Hotel & Sosial Media */}
         <div className="space-y-10">
           <div>
@@ -23,8 +23,8 @@ const ContactPage = () => {
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition-hover hover:shadow-xl">
               <h4 className="text-xl font-bold text-gray-900 mb-2">ASTON Lampung Hotel </h4>
               <p className="text-gray-600 mb-6 flex items-start text-sm">
-                <span className="mr-2">📍</span>
-                Jl. Wolter Monginsidi No.175, Gedong Meneng 
+
+                Jl. Wolter Monginsidi No.175, Gedong Meneng
               </p>
             </div>
           </div>
@@ -41,7 +41,7 @@ const ContactPage = () => {
                   <p className="text-sm font-semibold text-gray-800">+62 812-3456-7890</p>
                 </div>
               </a>
-              
+
               {/* Instagram */}
               <a href="#" className="flex items-center p-4 bg-pink-50 rounded-xl hover:bg-pink-100 transition border border-pink-200">
                 <div className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-2 rounded-lg mr-3 font-bold">IG</div>
@@ -85,30 +85,30 @@ const ContactPage = () => {
           <form className="space-y-6">
             <div>
               <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Nama Anda</label>
-              <input 
-                type="text" 
-                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition" 
-                placeholder="Nama Lengkap" 
+              <input
+                type="text"
+                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition"
+                placeholder="Nama Lengkap"
               />
             </div>
             <div>
               <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Email</label>
-              <input 
-                type="email" 
-                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition" 
-                placeholder="nama@email.com" 
+              <input
+                type="email"
+                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition"
+                placeholder="nama@email.com"
               />
             </div>
             <div>
               <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Pesan</label>
-              <textarea 
-                rows={4} 
-                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition" 
+              <textarea
+                rows={4}
+                className="w-full bg-gray-800 border-none rounded-xl p-4 text-white focus:ring-2 focus:ring-red-500 outline-none transition"
                 placeholder="Bagaimana kami bisa membantu Anda?"
               ></textarea>
             </div>
             <button className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-bold uppercase tracking-widest shadow-lg transition-all active:scale-95">
-              Kirim Pesan Sekarang 
+              Kirim Pesan Sekarang
             </button>
           </form>
         </div>
