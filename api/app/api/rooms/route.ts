@@ -20,6 +20,9 @@ export async function GET() {
                 // Hanya ambil kamar yang tersedia (isAvailable: true)
                 isAvailable: true,
             },
+            include: {
+                hotel: true
+            },
             orderBy: {
                 // Urutkan berdasarkan harga termurah ke termahal
                 price: 'asc',
@@ -34,7 +37,7 @@ export async function GET() {
     } catch (error) {
         // Tangani error database atau server
         console.error('API Error fetching rooms:', error);
-        
+
         // Kirim respons error internal server dengan status 500
         return NextResponse.json(
             { message: 'Internal Server Error: Failed to fetch room data.' },
