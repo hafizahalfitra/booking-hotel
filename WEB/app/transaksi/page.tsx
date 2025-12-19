@@ -38,14 +38,14 @@ export default function MyReservationPage() {
             }
 
             const user = JSON.parse(userStr);
-            if (!user.name) {
-                alert('User name not found in session');
+            if (!user.email) {
+                alert('User email not found in session');
                 return;
             }
 
             try {
-                // Fetch transactions filtered by name
-                const response = await fetch(`http://localhost:3001/api/transaksi?nama=${encodeURIComponent(user.name)}`, {
+                // Fetch transactions filtered by email
+                const response = await fetch(`http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`, {
                     // Optionally add auth header if GET also requires it, though user request implied name filter is key
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -102,8 +102,8 @@ export default function MyReservationPage() {
                                     <p className="text-sm text-gray-600">{trx.room?.hotel?.alamat}</p>
                                 </div>
                                 <span className={`px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0 ${trx.status === 'confirmed' ? 'bg-green-100 text-green-800' :
-                                        trx.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                                            'bg-red-100 text-red-800'
+                                    trx.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                                        'bg-red-100 text-red-800'
                                     }`}>
                                     {trx.status.charAt(0).toUpperCase() + trx.status.slice(1)}
                                 </span>

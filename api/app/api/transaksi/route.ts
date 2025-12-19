@@ -89,16 +89,16 @@ export async function POST(req: NextRequest) {
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url);
-        const nama = searchParams.get('nama');
+        const email = searchParams.get('email');
 
-        if (!nama) {
-            return NextResponse.json({ error: 'Nama required' }, { status: 400 });
+        if (!email) {
+            return NextResponse.json({ error: 'Email required' }, { status: 400 });
         }
 
         const transactions = await prisma.transaksi.findMany({
             where: {
-                nama: {
-                    equals: nama,
+                email: {
+                    equals: email,
                     mode: 'insensitive'
                 }
             },
