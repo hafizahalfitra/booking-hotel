@@ -206,104 +206,139 @@ export default function RoomPage() {
             {/* Modal Booking - FIXED SCROLLABLE */}
             {selectedRoom && (
                 <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
-                    <div className="bg-[#C2A895] rounded-2xl max-w-md w-full my-auto shadow-2xl relative flex flex-col max-h-[90vh]">
+                    <div className="bg-[#ffff] rounded-2xl max-w-md w-full my-auto shadow-2xl relative flex flex-col max-h-[90vh]">
                         {/* Header Modal */}
                         <div className="p-6 border-b border-black/10 flex justify-between items-center">
                             <h2 className="text-2xl font-bold text-gray-900">Konfirmasi Pesanan</h2>
                             <button onClick={resetForm} className="text-gray-700 hover:text-black text-2xl">×</button>
                         </div>
 
-                        {/* Body Modal - Area Scroll */}
-                        <div className="p-6 overflow-y-auto space-y-4 flex-grow">
-                            <div className="bg-white/30 p-4 rounded-xl">
-                                <p className="font-bold text-lg">{selectedRoom.roomType}</p>
-                                <p className="text-sm text-gray-800">Room #{selectedRoom.roomNumber}</p>
-                                <p className="text-blue-900 font-bold">Rp {selectedRoom.price.toLocaleString('id-ID')}/malam</p>
+                        {/* Body Modal - Scroll Area */}
+                        <div className="p-6 overflow-y-auto flex-grow space-y-6">
+
+                            {/* Room Info */}
+                            <div className="rounded-2xl bg-gradient-to-br from-blue-900 to-blue-700 text-white p-5 shadow-lg">
+                                <p className="text-xl font-semibold">{selectedRoom.roomType}</p>
+                                <p className="text-sm opacity-90">Room #{selectedRoom.roomNumber}</p>
+                                <p className="mt-2 text-2xl font-bold">
+                                    Rp {selectedRoom.price.toLocaleString('id-ID')}
+                                    <span className="text-sm font-medium opacity-80"> / malam</span>
+                                </p>
                             </div>
 
+                            {/* Date Section */}
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Check-in</label>
+                                    <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                        Check-in
+                                    </label>
                                     <input
                                         type="date"
                                         value={checkIn}
                                         onChange={(e) => setCheckIn(e.target.value)}
                                         min={new Date().toISOString().split('T')[0]}
-                                        className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                        className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                           focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                     />
                                 </div>
+
                                 <div>
-                                    <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Check-out</label>
+                                    <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                        Check-out
+                                    </label>
                                     <input
                                         type="date"
                                         value={checkOut}
                                         onChange={(e) => setCheckOut(e.target.value)}
                                         min={checkIn || new Date().toISOString().split('T')[0]}
-                                        className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                        className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                           focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                     />
                                 </div>
                             </div>
 
+                            {/* Guest Count */}
                             <div>
-                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Jumlah Tamu</label>
+                                <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                    Jumlah Tamu
+                                </label>
                                 <input
                                     type="number"
                                     value={jumlahTamu}
                                     onChange={(e) => setJumlahTamu(parseInt(e.target.value))}
                                     min="1"
                                     max={selectedRoom.capacity}
-                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
+                                    className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                       focus:ring-2 focus:ring-blue-500 focus:outline-none"
                                 />
-                                <p className="text-[10px] text-gray-800 mt-1 italic">*Maksimal {selectedRoom.capacity} orang</p>
+                                <p className="text-xs text-gray-500 mt-1">
+                                    Maksimal {selectedRoom.capacity} orang
+                                </p>
                             </div>
 
-                            <hr className="border-black/10" />
+                            <div className="border-t border-gray-200" />
 
-                            <div>
-                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Nama Pemesan</label>
-                                <input
-                                    type="text"
-                                    value={nama}
-                                    onChange={(e) => setNama(e.target.value)}
-                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
-                                    placeholder="Sesuai KTP"
-                                />
+                            {/* Guest Info */}
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                        Nama Pemesan
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={nama}
+                                        onChange={(e) => setNama(e.target.value)}
+                                        placeholder="Sesuai KTP"
+                                        className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                           focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                           focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label className="block text-xs font-semibold text-gray-600 mb-1">
+                                        No. WhatsApp
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        value={noHp}
+                                        onChange={(e) => setNoHp(e.target.value)}
+                                        placeholder="08xxxxxxxxxx"
+                                        className="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm
+                            focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
                             </div>
 
-                            <div>
-                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">Email</label>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-xs font-bold uppercase text-gray-700 mb-1">No. WhatsApp</label>
-                                <input
-                                    type="tel"
-                                    value={noHp}
-                                    onChange={(e) => setNoHp(e.target.value)}
-                                    className="w-full border-none rounded-lg px-3 py-2 shadow-inner"
-                                    placeholder="0812..."
-                                />
-                            </div>
-
+                            {/* Summary */}
                             {checkIn && checkOut && calculateDays() > 0 && (
-                                <div className="bg-blue-900/10 p-4 rounded-xl border border-blue-900/20">
-                                    <div className="flex justify-between text-sm mb-1">
-                                        <span>Durasi:</span>
-                                        <span>{calculateDays()} Malam</span>
+                                <div className="rounded-2xl bg-blue-50 border border-blue-200 p-5">
+                                    <div className="flex justify-between text-sm text-gray-700">
+                                        <span>Durasi</span>
+                                        <span>{calculateDays()} malam</span>
                                     </div>
-                                    <div className="flex justify-between font-bold text-lg text-blue-900">
-                                        <span>Total:</span>
-                                        <span>Rp {calculateTotal().toLocaleString('id-ID')}</span>
+                                    <div className="flex justify-between mt-2 text-lg font-bold text-blue-900">
+                                        <span>Total</span>
+                                        <span>
+                                            Rp {calculateTotal().toLocaleString('id-ID')}
+                                        </span>
                                     </div>
                                 </div>
                             )}
                         </div>
+
 
                         {/* Footer Modal - Tetap di Bawah */}
                         <div className="p-6 border-t border-black/10 flex gap-3">
@@ -317,7 +352,7 @@ export default function RoomPage() {
                             <button
                                 onClick={submitBooking}
                                 disabled={submitting || !checkIn || !checkOut || calculateDays() === 0}
-                                className="flex-[2] py-3 px-4 rounded-xl bg-blue-800 text-white font-bold hover:bg-blue-800 disabled:bg-blue-400 transition-all shadow-lg"
+                                className="flex-[2] py-3 px-4 rounded-xl bg-blue-800 text-white font-bold hover:bg-blue-800 disabled:bg-blue-700 transition-all shadow-lg"
                             >
                                 {submitting ? 'Mengirim...' : 'Konfirmasi Pesanan'}
                             </button>
