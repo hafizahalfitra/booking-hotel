@@ -55,9 +55,9 @@ const Footer = () => {
                         </div>
                     </div>
                     <div>
-                        <h4 className="mb-8 text-xl font-semibold text-white">Masukan</h4>
+                        <h4 className="mb-8 text-xl font-semibold text-white">Newslater</h4>
                         <p className="text-gray-400">
-                            Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda.
+                            Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda. Masukan anda sangat berarti bagi kami.
                         </p>
                         <form action="" className="mt-5">
                             <div className="mb-5">
