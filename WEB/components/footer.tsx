@@ -10,8 +10,7 @@ const Footer = () => {
                             <Image src="/logo.png" width={128} height={49} alt="logo" />
                         </Link>
                         <p className="text-gray-400">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            Iusto provident unde itaque! Et, nisi sunt.
+                            Kami adalah platform pemesanan hotel yang berfokus pada penyediaan akomodasi terbaik di seluruh Provinsi Lampung. Dengan jaringan hotel yang luas, kami membantu traveler menemukan tempat menginap yang nyaman, sesuai kebutuhan, dan dengan harga terbaik.
                         </p>
                     </div>
                     <div>
@@ -35,6 +34,8 @@ const Footer = () => {
                                 </ul>
                             </div>
                             <div className="flex-1 md:flex-none">
+                                <li>
+                                    </li>
                                 <h4 className="mb-8 text-xl font-semibold text-white">Legal</h4>
                                 <ul className="list-item space-y-5 text-gray-400">
                                     <li>
@@ -65,7 +66,7 @@ const Footer = () => {
                                     type="text"
                                     name="email"
                                     className="w-full p-3 rounded-sm bg-white"
-                                    placeholder="hafizahalfitra@gmail.com"
+                                    placeholder="masukan_email_anda@gmail.com"
                                     suppressHydrationWarning
                                 />
                             </div>
@@ -86,7 +87,7 @@ const Footer = () => {
         text-base text-gray-500">
                 &copy; Copyright 2025 | Team Grand | All Right Reserved
             </div> */}
-            
+
         </footer>
     )
 }
