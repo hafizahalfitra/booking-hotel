@@ -82,7 +82,7 @@ export default function MyReservationPage() {
 
             {transactions.length === 0 ? (
                 <div className="text-center py-12 bg-gray-50 rounded-lg">
-                    <p className="text-gray-500 mb-4">Belum ada pesanan</p>
+                    <p className="text-gray-500 mb-4">Belum ada detail pesanan yang tercatat</p>
                     <button
                         onClick={() => router.push('/room')}
                         className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
