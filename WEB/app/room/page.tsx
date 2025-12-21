@@ -317,7 +317,7 @@ export default function RoomPage() {
                             <button
                                 onClick={submitBooking}
                                 disabled={submitting || !checkIn || !checkOut || calculateDays() === 0}
-                                className="flex-[2] py-3 px-4 rounded-xl bg-blue-700 text-white font-bold hover:bg-blue-800 disabled:bg-blue-400 transition-all shadow-lg"
+                                className="flex-[2] py-3 px-4 rounded-xl bg-blue-800 text-white font-bold hover:bg-blue-800 disabled:bg-blue-400 transition-all shadow-lg"
                             >
                                 {submitting ? 'Mengirim...' : 'Konfirmasi Pesanan'}
                             </button>
