@@ -72,7 +72,7 @@ const Footer = () => {
                             </div>
                             <button
                                 // Gabungan: Menggunakan styling tombol yang lebih baik + hover dari Incoming
-                                className="bg-[#C2A895] p-3 font-bold text-white w-full text-center rounded-sm hover:bg-[#b39683]"
+                                className="bg-[#C9A24D] p-3 font-bold text-white w-full text-center rounded-sm hover:bg-[#B08C3C]"
                                 suppressHydrationWarning
                             >
                                 Subscribe
