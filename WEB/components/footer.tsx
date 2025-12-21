@@ -80,10 +80,13 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
+
+{/*             
             <div className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center
         text-base text-gray-500">
                 &copy; Copyright 2025 | Team Grand | All Right Reserved
-            </div>
+            </div> */}
+            
         </footer>
     )
 }
