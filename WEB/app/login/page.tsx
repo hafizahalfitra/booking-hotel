@@ -13,7 +13,7 @@ export default function LoginPage() {
   const router = useRouter();
   const setUser = useAuth((s) => s.setUser);
 
-  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
+  const clientId = "851902169190-vd8i870hoibk6lduioq42uavjd3esfpu.apps.googleusercontent.com";
   // pastikan ini ada di .env.local:
   // NEXT_PUBLIC_GOOGLE_CLIENT_ID=...
 

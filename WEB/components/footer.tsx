@@ -21,16 +21,16 @@ const Footer = () => {
                                 <h4 className="mb-8 text-xl font-semibold text-white">Links</h4>
                                 <ul className="list-item space-y-5 text-gray-400">
                                     <li>
-                                        <Link href="/">Beranda</Link>
+                                        <Link href="/">Home</Link>
                                     </li>
                                     <li>
-                                        <Link href="/about">Tentang Kami</Link>
+                                        <Link href="/about">About</Link>
                                     </li>
                                     <li>
-                                        <Link href="/room">Kamar</Link>
+                                        <Link href="/room">Rooms</Link>
                                     </li>
                                     <li>
-                                        <Link href="/contact">Hubungi Kami</Link>
+                                        <Link href="/contact">Contact</Link>
                                     </li>
                                 </ul>
                             </div>
