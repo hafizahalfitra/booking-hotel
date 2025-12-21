@@ -74,7 +74,7 @@ const ContactPage = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4 uppercase">Metode Pembayaran </h3>
             <p className="text-gray-600 leading-relaxed">
-              Kami menerima berbagai metode pembayaran mulai dari transfer bank hingga dompet digital untuk memudahkan proses reservasi Anda.
+              Kami menerima berbagai metode pembayaran mulai dari transfer bank hingga dompet digital untuk memudahkan proses reservasi Anda. 
             </p>
           </div>
         </div>
