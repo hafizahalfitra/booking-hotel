@@ -33,7 +33,7 @@ const Footer = () => {
                                     </li>
                                 </ul>
                             </div>
-                            <div className="flex-1 md:flex-none">
+                            {/* <div className="flex-1 md:flex-none">
                                 <li>
                                     </li>
                                 <h4 className="mb-8 text-xl font-semibold text-white">Legal</h4>
@@ -51,7 +51,7 @@ const Footer = () => {
                                         <Link href="#">Kebijakan Privasi</Link>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     <div>
