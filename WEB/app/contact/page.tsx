@@ -24,7 +24,7 @@ const ContactPage = () => {
               <h4 className="text-xl font-bold text-gray-900 mb-2">Lampung Hotel </h4>
               <p className="text-gray-600 mb-6 flex items-start text-sm">
 
-                Jl. Wolter Monginsidi No.175, Gedong Meneng
+                enggal, Jl. Raden Intan No.88, Pelita, Kota Bandar Lampung, Lampung 35118
               </p>
             </div>
           </div>
