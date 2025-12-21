@@ -21,7 +21,7 @@ const ContactPage = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6 border-l-4 border-red-600 pl-4 uppercase">Lokasi Kami</h3>
             <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 transition-hover hover:shadow-xl">
-              <h4 className="text-xl font-bold text-gray-900 mb-2">ASTON Lampung Hotel </h4>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">Lampung Hotel </h4>
               <p className="text-gray-600 mb-6 flex items-start text-sm">
 
                 Jl. Wolter Monginsidi No.175, Gedong Meneng
@@ -47,7 +47,7 @@ const ContactPage = () => {
                 <div className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 text-white p-2 rounded-lg mr-3 font-bold">IG</div>
                 <div>
                   <p className="text-xs text-pink-700 font-bold uppercase">Instagram</p>
-                  <p className="text-sm font-semibold text-gray-800">@astonlampunghotel</p>
+                  <p className="text-sm font-semibold text-gray-800">@lampunghotel</p>
                 </div>
               </a>
 
@@ -56,7 +56,7 @@ const ContactPage = () => {
                 <div className="bg-black text-white p-2 px-3 rounded-lg mr-3 font-bold font-mono">X</div>
                 <div>
                   <p className="text-xs text-gray-700 font-bold uppercase">X Account</p>
-                  <p className="text-sm font-semibold text-gray-800">@astonlampung</p>
+                  <p className="text-sm font-semibold text-gray-800">@lampunghotel</p>
                 </div>
               </a>
 
