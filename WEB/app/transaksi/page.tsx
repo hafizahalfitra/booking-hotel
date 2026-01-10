@@ -44,22 +44,21 @@ export default function MyReservationPage() {
             }
 
             try {
-                // Fetch transactions filtered by email
-                const response = await fetch(`http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`, {
-                    // Optionally add auth header if GET also requires it, though user request implied name filter is key
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                const response = await fetch(
+                    `http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`,
+                    {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        }
                     }
-                });
+                );
 
                 if (response.ok) {
                     const data = await response.json();
                     setTransactions(data);
-                } else {
-                    console.error('Failed to fetch transactions');
                 }
             } catch (error) {
-                console.error('Error fetching transactions:', error);
+                console.error(error);
             } finally {
                 setLoading(false);
             }
@@ -71,77 +70,115 @@ export default function MyReservationPage() {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <p className="text-xl">Loading...</p>
+                <p className="text-lg animate-pulse text-gray-500">Memuat data...</p>
             </div>
         );
     }
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <h1 className="text-3xl font-bold mb-8">Riwayat Pesanan Saya</h1>
+        <div className="max-w-6xl mx-auto px-4 py-10">
+            {/* Header */}
+            <div className="mb-10">
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+                    Riwayat Pesanan
+                </h1>
+                <p className="text-gray-500 mt-2">
+                    Semua pemesanan hotel yang pernah Anda lakukan
+                </p>
+            </div>
 
+            {/* Empty State */}
             {transactions.length === 0 ? (
-                <div className="text-center py-12 bg-gray-50 rounded-lg">
-                    <p className="text-gray-500 mb-4">Belum ada detail pesanan yang tercatat</p>
+                <div className="bg-white rounded-3xl shadow-sm p-10 text-center">
+                    <p className="text-gray-500 mb-6">
+                        Belum ada pesanan yang tercatat
+                    </p>
                     <button
                         onClick={() => router.push('/room')}
-                        className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                        className="px-8 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
                     >
-                        Cari Hotel
+                        Cari Hotel Sekarang
                     </button>
                 </div>
             ) : (
-                <div className="grid gap-6">
+                <div className="space-y-6">
                     {transactions.map((trx) => (
-                        <div key={trx.id} className="bg-white border rounded-lg shadow-sm hover:shadow-md transition-shadow p-6">
-                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div
+                            key={trx.id}
+                            className="bg-white rounded-3xl shadow-sm hover:shadow-md transition p-6 md:p-8"
+                        >
+                            {/* Header Card */}
+                            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                                 <div>
                                     <h2 className="text-xl font-bold text-gray-900">
-                                        {trx.room?.hotel?.nama || 'Hotel Info Unavailable'}
+                                        {trx.room?.hotel?.nama}
                                     </h2>
-                                    <p className="text-sm text-gray-600">{trx.room?.hotel?.alamat}</p>
+                                    <p className="text-sm text-gray-500">
+                                        {trx.room?.hotel?.alamat}
+                                    </p>
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-sm font-medium mt-2 md:mt-0 ${trx.status === 'confirmed' ? 'bg-green-100 text-green-800' :
-                                    trx.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                                        'bg-red-100 text-red-800'
-                                    }`}>
-                                    {trx.status.charAt(0).toUpperCase() + trx.status.slice(1)}
+
+                                <span
+                                    className={`px-4 py-1.5 rounded-full text-sm font-semibold w-fit
+                                    ${trx.status === 'confirmed'
+                                            ? 'bg-green-100 text-green-700'
+                                            : trx.status === 'pending'
+                                                ? 'bg-yellow-100 text-yellow-700'
+                                                : 'bg-red-100 text-red-700'
+                                        }`}
+                                >
+                                    {trx.status.toUpperCase()}
                                 </span>
                             </div>
 
-                            <hr className="my-4" />
+                            {/* Divider */}
+                            <div className="h-px bg-gray-200 mb-6" />
 
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-3">
+                            {/* Content */}
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {/* Left */}
+                                <div className="space-y-4">
                                     <div>
-                                        <p className="text-sm text-gray-500">Tipe Kamar</p>
-                                        <p className="font-medium">{trx.tipeKamar}</p>
+                                        <p className="text-xs uppercase text-gray-400">Tipe Kamar</p>
+                                        <p className="font-semibold">{trx.tipeKamar}</p>
                                     </div>
+
                                     <div>
-                                        <p className="text-sm text-gray-500">Nomor Kamar</p>
-                                        <p className="font-medium">{trx.room?.roomNumber}</p>
+                                        <p className="text-xs uppercase text-gray-400">Nomor Kamar</p>
+                                        <p className="font-semibold">{trx.room?.roomNumber}</p>
                                     </div>
+
                                     <div>
-                                        <p className="text-sm text-gray-500">Tamu</p>
-                                        <p className="font-medium">{trx.nama}</p>
-                                        <p className="text-sm">{trx.email} • {trx.noHp}</p>
+                                        <p className="text-xs uppercase text-gray-400">Pemesan</p>
+                                        <p className="font-semibold">{trx.nama}</p>
+                                        <p className="text-sm text-gray-500">
+                                            {trx.email} • {trx.noHp}
+                                        </p>
                                     </div>
                                 </div>
 
-                                <div className="space-y-3">
+                                {/* Right */}
+                                <div className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <p className="text-sm text-gray-500">Check-in</p>
-                                            <p className="font-medium">{new Date(trx.checkIn).toLocaleDateString('id-ID')}</p>
+                                            <p className="text-xs uppercase text-gray-400">Check-in</p>
+                                            <p className="font-semibold">
+                                                {new Date(trx.checkIn).toLocaleDateString('id-ID')}
+                                            </p>
                                         </div>
                                         <div>
-                                            <p className="text-sm text-gray-500">Check-out</p>
-                                            <p className="font-medium">{new Date(trx.checkOut).toLocaleDateString('id-ID')}</p>
+                                            <p className="text-xs uppercase text-gray-400">Check-out</p>
+                                            <p className="font-semibold">
+                                                {new Date(trx.checkOut).toLocaleDateString('id-ID')}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <p className="text-sm text-gray-500">Total Harga</p>
-                                        <p className="text-xl font-bold text-blue-600">
+
+                                    <div className="bg-blue-50 rounded-2xl p-4">
+                                        <p className="text-xs uppercase text-blue-600 font-semibold">
+                                            Total Pembayaran
+                                        </p>
+                                        <p className="text-2xl font-bold text-blue-700">
                                             Rp {trx.totalPrice.toLocaleString('id-ID')}
                                         </p>
                                     </div>
