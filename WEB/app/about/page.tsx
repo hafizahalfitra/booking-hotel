@@ -40,7 +40,7 @@ const AboutPage = () => {
 
                     {/* Content Section */}
                     <div>
-                        <span className="inline-block mb-3 text-sm uppercase tracking-widest text-blue-600 font-semibold">
+                        <span className="inline-block mb-3 text-sm uppercase tracking-widest text-[#C9A24D] font-semibold">
                             Tentang Platform
                         </span>
 
