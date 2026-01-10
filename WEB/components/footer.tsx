@@ -1,95 +1,82 @@
 import Link from "next/link";
 import Image from "next/image";
+
 const Footer = () => {
     return (
-        <footer className="bg-gray-900">
-            <div className="max-w-screen-xl mx-auto px-4 w-full py-10 md:py-16">
-                <div className="grid md:grid-cols-3 gap-7">
+        <footer className="bg-gray-900 text-gray-400">
+            <div className="max-w-screen-xl mx-auto px-6 py-16">
+                <div className="grid gap-12 md:grid-cols-3">
+
+                    {/* Brand */}
                     <div>
-                        <Link href="/" className="mb-10 block">
-                            <Image src="/logo.png" width={128} height={49} alt="logo" />
+                        <Link href="/" className="inline-block mb-6">
+                            <Image src="/logo.png" width={140} height={55} alt="Logo" />
                         </Link>
-                        <p className="text-gray-400">
-                            Kami adalah platform pemesanan hotel yang berfokus pada penyediaan akomodasi terbaik di seluruh Provinsi Lampung. Dengan jaringan hotel yang luas, kami membantu traveler menemukan tempat menginap yang nyaman, sesuai kebutuhan, dan dengan harga terbaik.
+                        <p className="text-sm leading-relaxed max-w-sm">
+                            Pengalaman menginap terbaik di Lampung dengan hotel premium,
+                            pelayanan profesional, dan harga kompetitif.
                         </p>
                     </div>
+
+                    {/* Menu */}
                     <div>
-                        {/* Perbaiki sintaks TailwindCSS ini jika 'flex-gap-20' bukan kelas yang valid. Mungkin maksudnya 'gap-20' dalam flex container, atau 'space-x-20' */}
-                        <div className="flex-gap-20"> 
-                            <div className="flex-1 md:flex-none">
-                                <h4 className="mb-8 text-xl font-semibold text-white">Links</h4>
-                                <ul className="list-item space-y-5 text-gray-400">
-                                    <li>
-                                        <Link href="/">Home</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/about">About</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/room">Rooms</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/contact">Contact</Link>
-                                    </li>
-                                </ul>
-                            </div>
-                            {/* <div className="flex-1 md:flex-none">
-                                <li>
-                                    </li>
-                                <h4 className="mb-8 text-xl font-semibold text-white">Legal</h4>
-                                <ul className="list-item space-y-5 text-gray-400">
-                                    <li>
-                                        <Link href="#">Legal</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">Syarat & Ketentuan</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">Metode Pembayaran</Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">Kebijakan Privasi</Link>
-                                    </li>
-                                </ul>
-                            </div> */}
-                        </div>
+                        <h4 className="text-white text-lg font-semibold mb-6">
+                            Menu
+                        </h4>
+                        <ul className="space-y-4 text-sm">
+                            <li>
+                                <Link href="/" className="hover:text-white transition">
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/room" className="hover:text-white transition">
+                                    Kamar & Harga
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/about" className="hover:text-white transition">
+                                    Tentang Kami
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/contact" className="hover:text-white transition">
+                                    Kontak
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
+
+                    {/* Newsletter */}
                     <div>
-                        <h4 className="mb-8 text-xl font-semibold text-white">Newslater</h4>
-                        <p className="text-gray-400">
-                            Temukan akomodasi terbaik dengan harga terjangkau untuk kenyamanan menginap Anda. Masukan anda sangat berarti bagi kami.
+                        <h4 className="text-white text-lg font-semibold mb-6">
+                            Berlangganan
+                        </h4>
+                        <p className="text-sm mb-5">
+                            Promo eksklusif & rekomendasi hotel langsung ke email Anda.
                         </p>
-                        <form action="" className="mt-5">
-                            <div className="mb-5">
-                                {/* Gabungan: Menggunakan format Input yang ringkas + suppressHydrationWarning */}
-                                <input
-                                    type="text"
-                                    name="email"
-                                    className="w-full p-3 rounded-sm bg-white"
-                                    placeholder="masukan_email_anda@gmail.com"
-                                    suppressHydrationWarning
-                                />
-                            </div>
-                            <button
-                                // Gabungan: Menggunakan styling tombol yang lebih baik + hover dari Incoming
-                                className="bg-[#C9A24D] p-3 font-bold text-white w-full text-center rounded-sm hover:bg-[#B08C3C]"
-                                suppressHydrationWarning
-                            >
+
+                        <div className="flex flex-col gap-3">
+                            <input
+                                type="email"
+                                placeholder="Masukkan email"
+                                className="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none"
+                            />
+                            <button className="bg-[#C2A895] hover:bg-[#b39683] text-white py-3 rounded-lg font-semibold transition">
                                 Subscribe
                             </button>
-                        </form>
+                        </div>
                     </div>
+
+                </div>
+
+                {/* Copyright */}
+                <div className="border-t border-gray-700 mt-16 pt-6 text-center text-sm">
+                    © 2025 Hotel Bandar Lampung. All rights reserved.
                 </div>
             </div>
-
-{/*             
-            <div className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center
-        text-base text-gray-500">
-                &copy; Copyright 2025 | Team Grand | All Right Reserved
-            </div> */}
-
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
