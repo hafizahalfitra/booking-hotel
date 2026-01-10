@@ -31,13 +31,28 @@ const Navlink = () => {
   };
 
   // class dasar link
-  const linkClass = (href: string) =>
-    clsx(
-      "block py-2 px-3 rounded-sm md:p-0 transition",
-      isActive(href)
-        ? "text-[#C9A24D] md:border-b-2 md:border-[#C9A24D]"
-        : "text-gray-800 hover:bg-gray-100 md:hover:bg-transparent hover:text-[#C9A24D]"
-    );
+const linkClass = (href: string) =>
+  clsx(
+    "relative block py-2 px-3 md:p-0 transition-all duration-300",
+    isActive(href)
+      ? `
+        text-[#C9A24D] 
+        md:after:content-[''] 
+        md:after:absolute 
+        md:after:-bottom-1 
+        md:after:left-0 
+        md:after:w-full 
+        md:after:h-[2px] 
+        md:after:bg-[#C9A24D]
+      `
+      : `
+        text-gray-800 
+        hover:text-[#C9A24D] 
+        hover:bg-gray-100 
+        md:hover:bg-transparent
+      `
+  );
+
 
   return (
     <>
