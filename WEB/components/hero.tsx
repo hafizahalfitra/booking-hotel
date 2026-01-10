@@ -1,36 +1,60 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
+
 const Hero = () => {
     return (
-        <div className="relative h-screen text-white overflow-hidden">
+        <section className="relative h-screen text-white overflow-hidden">
+            {/* Background */}
             <div className="absolute inset-0">
-                <Image src="/hero.jpg" alt="heroimage" fill className="object-cover object-center
-                w-full h-full"/>
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-
+                <Image
+                    src="/hero.jpg"
+                    alt="Hotel Bandar Lampung"
+                    fill
+                    priority
+                    className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/60"></div>
             </div>
-            <div className="relative flex flex-col justify-center items-center h-full text-center">
-                <h1 className="text-7xl font-extrabold leading-tight mb-3 capitalize">Pesan Kamar
-                    Mewah Anda</h1>
-                <p className="text-xl text-gray-300 mb-8">Dapatkan Penawaran Spesial Hotel Bandar Lampung Hanya Untuk Anda Hari Ini.</p>
-                <div className="flex gap-5">
-                    <Link href="/room" className="bg-[#C2A895] text-white hover:bg-[#b39683]
-                    py-2.5 px-6 md:px-10 text-lg font-semibold hover:scale-105 hover:shadow-lg"
-                    >
-                        Pesan Sekarang
-                        
-                    </Link>
 
-                    <Link 
-                    href="/contact" 
-                    className="bg-transparent border border-[#C2A895] text-white hover:bg-[#b39683]
-                    py-2.5 px-6 md:px-10 text-lg font-semibold hover:scale-105 hover:shadow-lg"
-                    >Hubungi kami</Link>
+            {/* Content - CENTER FIX */}
+            <div className="relative z-10 flex h-full items-center justify-center text-center px-5">
+                <div className="max-w-3xl">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                        Pesan Kamar <span className="text-[#C2A895]">Mewah</span> Anda
+                    </h1>
 
+                    <p className="text-sm md:text-lg text-gray-200 mb-10 leading-relaxed">
+                        Nikmati pengalaman menginap eksklusif dengan harga terbaik
+                        di Hotel Bandar Lampung.
+                    </p>
+
+                    {/* CTA */}
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+                        <Link
+                            href="/room"
+                            className="bg-[#C2A895] text-white
+                            px-8 py-3 rounded-xl text-base md:text-lg font-semibold
+                            hover:bg-[#b39683] transition-all
+                            shadow-lg shadow-[#C2A895]/30
+                            active:scale-95"
+                        >
+                            Pesan Sekarang
+                        </Link>
+
+                        <Link
+                            href="/contact"
+                            className="border border-[#C2A895] text-white
+                            px-8 py-3 rounded-xl text-base md:text-lg font-semibold
+                            hover:bg-[#C2A895] transition-all
+                            active:scale-95"
+                        >
+                            Hubungi Kami
+                        </Link>
+                    </div>
                 </div>
             </div>
-            Hero</div>
-    )
-}
+        </section>
+    );
+};
 
-export default Hero
+export default Hero;
