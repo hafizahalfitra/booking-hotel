@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
     IoPeopleOutline,
     IoLocationOutline,
     IoStarSharp,
+    IoArrowForwardOutline,
 } from "react-icons/io5";
 import { useAuth } from "@/src/store/auth";
 
@@ -37,14 +37,12 @@ const Card = ({ hotel }: CardProps) => {
     const { user } = useAuth();
     const router = useRouter();
 
-    // Ambil harga termurah dari rooms yang available
     const availableRooms = hotel.rooms.filter((room) => room.isAvailable);
     const minPrice =
         availableRooms.length > 0
             ? Math.min(...availableRooms.map((room) => room.price))
             : 0;
 
-    // Ambil kapasitas maksimal
     const maxCapacity =
         availableRooms.length > 0
             ? Math.max(...availableRooms.map((room) => room.capacity))
@@ -59,73 +57,80 @@ const Card = ({ hotel }: CardProps) => {
     };
 
     return (
-        <div
-            className="bg-white rounded-xl overflow-hidden
-      shadow-md hover:shadow-xl transition-all duration-300"
-        >
-            {/* IMAGE */}
-            <div className="relative h-[260px]">
+        <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
+            
+            {/* --- IMAGE SECTION --- */}
+            <div className="relative h-[280px] overflow-hidden">
                 <Image
                     src={hotel.thumbnailUrl || "/standar-room.jpeg"}
-                    width={384}
-                    height={256}
+                    width={500}
+                    height={400}
                     alt={hotel.nama}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
+                
+                {/* Gradient Overlay agar teks lebih terbaca jika ada elemen di atasnya */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
+                {/* Rating Badge - Modern Glassmorphism */}
                 {hotel.rating && (
-                    <div
-                        className="absolute top-4 left-4 flex items-center gap-1
-            bg-white/90 backdrop-blur px-3 py-1.5 rounded-full shadow"
-                    >
-                        <IoStarSharp className="text-yellow-500" />
-                        <span className="text-sm font-semibold">{hotel.rating}</span>
+                    <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-white/70 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm border border-white/20">
+                        <IoStarSharp className="text-[#C2A895]" />
+                        <span className="text-xs font-bold text-gray-800 tracking-wider">{hotel.rating}</span>
                     </div>
                 )}
+
+                {/* Status Available Badge */}
+                <div className="absolute top-5 right-5">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full backdrop-blur-md border ${availableRooms.length > 0 ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600' : 'bg-rose-500/10 border-rose-500/20 text-rose-600'}`}>
+                        {availableRooms.length > 0 ? 'Tersedia' : 'Penuh'}
+                    </span>
+                </div>
             </div>
 
-            {/* CONTENT */}
-            <div className="p-6 md:p-7">
-                {/* Nama & Lokasi */}
-                <div className="mb-4">
-                    <h4
-                        className="text-xl md:text-2xl font-semibold
-            text-gray-800 leading-snug"
-                    >
-                        {hotel.nama}
-                    </h4>
+            {/* --- CONTENT SECTION --- */}
+            <div className="p-8">
+                {/* Alamat - Small Header */}
+                <div className="flex items-center gap-1.5 text-[#C2A895] mb-2">
+                    <IoLocationOutline className="text-sm" />
+                    <span className="text-[10px] uppercase font-bold tracking-[0.2em]">{hotel.alamat.split(',')[0]}</span>
+                </div>
 
-                    <div className="flex items-center gap-1 text-gray-500 text-sm mt-1">
-                        <IoLocationOutline />
-                        <span>{hotel.alamat}</span>
+                {/* Nama Hotel */}
+                <h4 className="text-2xl font-serif font-medium text-gray-900 mb-4 line-clamp-1 group-hover:text-[#C2A895] transition-colors">
+                    {hotel.nama}
+                </h4>
+
+                {/* Fasilitas Singkat */}
+                <div className="flex items-center gap-4 mb-8">
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-50 rounded-xl border border-gray-100">
+                        <IoPeopleOutline className="text-gray-400 text-lg" />
+                        <span className="text-xs font-semibold text-gray-600">Up to {maxCapacity} Guest</span>
                     </div>
                 </div>
 
-                {/* Harga */}
-                <div className="flex items-end gap-1 mb-6">
-                    <span className="text-2xl font-bold text-gray-700">
-                        Rp {minPrice.toLocaleString("id-ID")}
-                    </span>
-                    <span className="text-sm text-gray-400 mb-0.5">/ malam</span>
-                </div>
+                <div className="h-[1px] w-full bg-gray-100 mb-6" />
 
-                {/* Footer Card */}
+                {/* Footer: Price & CTA */}
                 <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-gray-600 text-sm">
-                        <IoPeopleOutline className="text-lg" />
-                        <span>{maxCapacity} Orang</span>
+                    <div>
+                        <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1 text-left">Mulai Dari</p>
+                        <div className="flex items-baseline gap-1">
+                            <span className="text-2xl font-black text-gray-900 leading-none">
+                                Rp{minPrice.toLocaleString("id-ID")}
+                            </span>
+                            <span className="text-xs text-gray-400 font-medium">/night</span>
+                        </div>
                     </div>
 
                     <button
                         onClick={handleBooking}
-                        className="px-6 py-2.5 md:px-8
-            text-sm md:text-base font-semibold text-white
-            bg-[#C2A895] rounded-lg
-            hover:bg-[#b39683]
-            transition-all duration-200
-            active:scale-95"
+                        className="group/btn relative flex items-center justify-center w-14 h-14 bg-gray-900 rounded-2xl transition-all duration-300 hover:w-40 hover:bg-[#C2A895] active:scale-95 shadow-lg shadow-gray-200"
                     >
-                        Pesan Sekarang
+                        <div className="flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap px-4 text-white">
+                            <span className="hidden group-hover/btn:block text-sm font-bold transition-all duration-500">Book Room</span>
+                            <IoArrowForwardOutline className="text-xl shrink-0" />
+                        </div>
                     </button>
                 </div>
             </div>
