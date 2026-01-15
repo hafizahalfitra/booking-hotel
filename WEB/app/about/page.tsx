@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import HeaderSection from "@/components/header-setion"
-import { IoEyeOutline, IoLocateOutline, IoStarOutline, IoShieldCheckmarkOutline, IoTrendingUpOutline, IoHeadsetOutline } from "react-icons/io5"
+import { IoEyeOutline, IoLocateOutline, IoStarOutline, IoShieldCheckmarkOutline, IoTrendingUpOutline } from "react-icons/io5"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -10,115 +10,141 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
-        <div className="bg-white text-slate-900">
+        <div className="bg-[#FCFCFC] text-slate-900 overflow-hidden">
             <HeaderSection
                 title="Tentang Kami"
-                subtitle="Membangun standar baru dalam pemesanan akomodasi eksklusif di jantung Lampung."
+                subtitle="Mendefinisikan ulang standar kemewahan dan kenyamanan di gerbang Sumatera."
             />
 
-            {/* SECTION 1 — PROFIL & NARASI */}
+            {/* SECTION 1 — STORY & IMAGE HERO */}
             <section className="max-w-screen-xl mx-auto py-24 px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Image Composition */}
-                    <div className="relative group">
-                        <div className="absolute -top-4 -left-4 w-2/3 h-2/3 border border-[#C9A24D]/30 rounded-[2rem] -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500"></div>
-                        <div className="relative overflow-hidden rounded-[2.5rem] shadow-2xl">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    
+                    {/* Left: Image Side (7 Columns) */}
+                    <div className="lg:col-span-7 relative">
+                        <div className="relative z-10 overflow-hidden rounded-[3rem] aspect-[4/5] md:aspect-video lg:aspect-square shadow-2xl">
                             <Image
                                 src="/about-image.jpg"
-                                width={800}
-                                height={900}
-                                alt="Tentang Kami"
-                                className="object-cover w-full h-auto transform hover:scale-105 transition-transform duration-1000"
+                                fill
+                                alt="Modern Interior"
+                                className="object-cover transform hover:scale-110 transition-transform duration-[2s]"
                             />
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                         </div>
-                        {/* Floating Experience Card */}
-                        <div className="absolute -bottom-8 -right-4 md:right-8 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 animate-pulse">
-                            <p className="text-[#C9A24D] text-4xl font-serif italic leading-none">100+</p>
-                            <p className="text-slate-500 text-xs uppercase tracking-widest font-bold mt-2">Mitra Terpercaya</p>
+                        
+                        {/* Floating Experience Card - Modern Style */}
+                        <div className="absolute -bottom-10 -left-6 md:left-10 z-20 bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-white/50 hidden md:block">
+                            <div className="flex items-center gap-6">
+                                <div>
+                                    <p className="text-[#C2A895] text-5xl font-light tracking-tighter">12<span className="text-2xl font-bold italic">Th</span></p>
+                                    <p className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Dedikasi Layanan</p>
+                                </div>
+                                <div className="w-[1px] h-12 bg-slate-200"></div>
+                                <div>
+                                    <p className="text-slate-900 text-5xl font-light tracking-tighter">100<span className="text-2xl font-bold">+</span></p>
+                                    <p className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Destinasi Pilihan</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Narrative Content */}
-                    <div className="space-y-8">
-                        <div>
-                            <p className="text-[#C9A24D] font-bold tracking-[0.3em] uppercase text-sm mb-4">The Gateway to Lampung</p>
-                            <h2 className="text-4xl md:text-6xl font-serif font-medium leading-tight italic">
-                                Pengalaman Menginap <br />
-                                <span className="not-italic text-slate-900">Tanpa Batas.</span>
+                    {/* Right: Narrative (5 Columns) */}
+                    <div className="lg:col-span-5 space-y-10">
+                        <div className="space-y-4">
+                            <span className="inline-block px-4 py-1 rounded-full bg-[#C2A895]/10 text-[#C2A895] text-[10px] font-bold uppercase tracking-[0.3em]">
+                                Established 2014
+                            </span>
+                            <h2 className="text-4xl md:text-5xl font-medium leading-[1.15] text-slate-900 tracking-tight">
+                                Memberikan Pengalaman <br />
+                                <span className="italic font-serif text-[#C2A895]">Luar Biasa</span> di Setiap Detik.
                             </h2>
                         </div>
 
-                        <p className="text-slate-600 text-lg leading-relaxed font-light">
-                            Kami hadir sebagai kurator akomodasi digital terdepan di Lampung. Melalui dedikasi tinggi, kami menghubungkan Anda dengan pilihan hotel terbaik yang menggabungkan kenyamanan modern dengan keramahan khas lokal.
+                        <p className="text-slate-500 text-lg leading-relaxed font-light">
+                            Kami bukan sekadar platform pemesanan. Kami adalah kurator perjalanan Anda di Lampung, memastikan setiap sudut kamar yang Anda pesan mencerminkan standar kualitas yang kami jaga dengan ketat.
                         </p>
 
-                        {/* Visi & Misi with minimalist look */}
-                        <div className="grid grid-cols-1 gap-4 pt-4">
-                            <div className="flex gap-5 p-6 rounded-3xl bg-slate-50 border border-transparent hover:border-[#C9A24D]/20 hover:bg-white hover:shadow-xl transition-all duration-300 group">
-                                <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl bg-[#C9A24D]/10 text-[#C9A24D] group-hover:bg-[#C9A24D] group-hover:text-white transition-colors">
-                                    <IoEyeOutline size={24} />
+                        <div className="space-y-6">
+                            {[
+                                { 
+                                    icon: <IoEyeOutline />, 
+                                    title: "Visi Global", 
+                                    desc: "Menjadi standar emas digitalisasi perhotelan di Indonesia." 
+                                },
+                                { 
+                                    icon: <IoLocateOutline />, 
+                                    title: "Misi Lokal", 
+                                    desc: "Memberdayakan akomodasi lokal dengan teknologi kelas dunia." 
+                                }
+                            ].map((item, i) => (
+                                <div key={i} className="flex gap-6 group">
+                                    <div className="w-12 h-12 shrink-0 flex items-center justify-center rounded-2xl bg-white border border-slate-100 shadow-sm text-[#C2A895] group-hover:bg-[#C2A895] group-hover:text-white transition-all duration-500">
+                                        {item.icon}
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-slate-900 tracking-wide mb-1">{item.title}</h4>
+                                        <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h4 className="text-lg font-bold">Visi Global</h4>
-                                    <p className="text-slate-500 text-sm leading-relaxed">Menjadi lokomotif utama digitalisasi pariwisata Lampung dengan standar layanan internasional.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex gap-5 p-6 rounded-3xl bg-slate-50 border border-transparent hover:border-[#C9A24D]/20 hover:bg-white hover:shadow-xl transition-all duration-300 group">
-                                <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl bg-[#C9A24D]/10 text-[#C9A24D] group-hover:bg-[#C9A24D] group-hover:text-white transition-colors">
-                                    <IoLocateOutline size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="text-lg font-bold">Misi Terukur</h4>
-                                    <p className="text-slate-500 text-sm leading-relaxed">Menyediakan akses reservasi yang transparan, aman, dan efisien bagi setiap pelancong.</p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 2 — CORE VALUES (Premium Dark Section) */}
-            <section className="bg-slate-900 py-24 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-                
+            {/* SECTION 2 — CORE VALUES (Premium Minimalist) */}
+            <section className="bg-[#0A0F1A] py-32 relative">
                 <div className="max-w-screen-xl mx-auto px-6 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-[#C9A24D] text-3xl md:text-5xl font-serif italic mb-4">Mengapa Memilih Kami?</h2>
-                        <div className="w-24 h-[1px] bg-[#C9A24D]/50 mx-auto"></div>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                        <div className="max-w-2xl">
+                            <h2 className="text-white text-4xl md:text-5xl font-medium tracking-tight mb-6">
+                                Keunggulan yang Kami <br /> <span className="text-[#C2A895] italic font-serif">Tawarkan Untuk Anda</span>
+                            </h2>
+                            <p className="text-slate-400 font-light">
+                                Kami memahami bahwa perjalanan Anda berharga. Oleh karena itu, kami membangun fondasi layanan kami di atas tiga pilar utama.
+                            </p>
+                        </div>
+                        <div className="hidden md:block w-32 h-[1px] bg-[#C2A895]/30 mb-4"></div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { icon: <IoStarOutline />, title: "Kurasi Ketat", desc: "Setiap hotel mitra kami melewati proses verifikasi standar kenyamanan yang komprehensif." },
-                            { icon: <IoShieldCheckmarkOutline />, title: "Privasi Mutlak", desc: "Data Anda dienkripsi dengan teknologi keamanan tingkat tinggi di setiap transaksi." },
-                            { icon: <IoTrendingUpOutline />, title: "Harga Kompetitif", desc: "Dapatkan penawaran harga terbaik yang transparan tanpa ada biaya tersembunyi." }
+                            { icon: <IoStarOutline />, title: "Kurasi Premium", desc: "Hanya hotel dengan rating kepuasan di atas 4.5 yang masuk dalam daftar kami." },
+                            { icon: <IoShieldCheckmarkOutline />, title: "Keamanan Data", desc: "Protokol enkripsi tingkat bank untuk menjamin privasi identitas dan transaksi Anda." },
+                            { icon: <IoTrendingUpOutline />, title: "Jaminan Harga", desc: "Harga transparan langsung dari pemilik properti tanpa biaya admin tambahan." }
                         ].map((item, idx) => (
-                            <div key={idx} className="group p-10 rounded-[2rem] border border-slate-800 bg-slate-800/30 backdrop-blur-sm hover:bg-white transition-all duration-500">
-                                <div className="text-[#C9A24D] text-5xl mb-6 group-hover:scale-110 transition-transform">{item.icon}</div>
-                                <h4 className="text-white group-hover:text-slate-900 text-2xl font-bold mb-4">{item.title}</h4>
-                                <p className="text-slate-400 group-hover:text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                            <div key={idx} className="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white hover:border-white transition-all duration-500">
+                                <div className="text-[#C2A895] text-4xl mb-8 group-hover:scale-110 transition-transform duration-500">
+                                    {item.icon}
+                                </div>
+                                <h4 className="text-white group-hover:text-slate-900 text-xl font-bold mb-4 tracking-wide">{item.title}</h4>
+                                <p className="text-slate-400 group-hover:text-slate-500 text-sm leading-relaxed font-light">
+                                    {item.desc}
+                                </p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* SECTION 3 — MINIMALIST STATS */}
-            <section className="py-24 bg-white">
+            {/* SECTION 3 — MODERN STATS COUNTER */}
+            <section className="py-32 bg-white">
                 <div className="max-w-screen-xl mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
                         {[
-                            { label: "Hotel Aktif", val: "100+" },
-                            { label: "Sukses Booking", val: "1k+" },
-                            { label: "Review Positif", val: "98%" },
-                            { label: "Layanan CS", val: "24/7" }
+                            { label: "Hotel Terverifikasi", val: "120", suffix: "+" },
+                            { label: "Pemesanan Berhasil", val: "15", suffix: "K+" },
+                            { label: "Tingkat Kepuasan", val: "99", suffix: "%" },
+                            { label: "Dukungan Pelanggan", val: "24", suffix: "/7" }
                         ].map((stat, i) => (
-                            <div key={i} className="group">
-                                <h3 className="text-5xl font-black text-slate-900 mb-2 tracking-tighter group-hover:text-[#C9A24D] transition-colors">{stat.val}</h3>
-                                <div className="h-0.5 w-8 bg-[#C9A24D] mx-auto mb-3 scale-x-0 group-hover:scale-x-100 transition-transform"></div>
-                                <p className="text-slate-500 font-bold text-xs uppercase tracking-[0.2em]">{stat.label}</p>
+                            <div key={i} className="text-center space-y-2 group">
+                                <div className="relative inline-block">
+                                    <h3 className="text-6xl font-light text-slate-900 tracking-tighter group-hover:text-[#C2A895] transition-colors duration-500">
+                                        {stat.val}<span className="text-[#C2A895] text-3xl font-bold">{stat.suffix}</span>
+                                    </h3>
+                                </div>
+                                <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.3em]">{stat.label}</p>
                             </div>
                         ))}
                     </div>
