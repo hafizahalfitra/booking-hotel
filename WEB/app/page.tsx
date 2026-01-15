@@ -22,11 +22,10 @@ export default function Home() {
           </h1>
 
           <div className="mt-8 flex items-center justify-center gap-4">
-             <div className="h-[1px] w-8 bg-slate-200"></div>
-             <p className="text-slate-500 font-light max-w-md leading-relaxed text-sm md:text-base">
-                Temukan perpaduan sempurna antara estetika modern dan kenyamanan tak tertandingi di setiap sudut ruang kami.
-             </p>
-             <div className="h-[1px] w-8 bg-slate-200"></div>
+            <div className="h-[1px] w-8 bg-slate-200"></div>
+            <p className="text-slate-500 font-light max-w-md leading-relaxed text-sm md:text-base">
+              Setiap sudut ruang dirancang dengan sentuhan modern yang estetis dan kenyamanan yang tak tertandingi.             </p>
+            <div className="h-[1px] w-8 bg-slate-200"></div>
           </div>
         </div>
 
