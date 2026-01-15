@@ -42,6 +42,7 @@ function jsonResponse(data: unknown, status = 200): Response {
 
 export async function POST(req: Request): Promise<Response> {
   try {
+    // 1. Membaca body request sebagai teks mentah
     const raw = await req.text();
 
     if (!raw || raw.trim() === "") {
