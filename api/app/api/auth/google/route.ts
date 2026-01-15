@@ -5,6 +5,7 @@ export const runtime = "nodejs";
 import { OAuth2Client } from "google-auth-library";
 import jwt from "jsonwebtoken";
 
+// Inisialisasi Google OAuth Client menggunakan Client ID dari environment variable
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const corsHeaders: Record<string, string> = {
