@@ -91,9 +91,9 @@ const ContactPage = () => {
             <h3 className="text-xl font-bold uppercase tracking-wide mb-4">
               Metode Pembayaran
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Kami menerima transfer bank dan dompet digital untuk memastikan proses reservasi yang mudah dan aman.
-            </p>
+            <p className="text-gray-600 text-sm leading-relaxed">Proses pembayaran dilakukan secara 
+              langsung oleh pihak hotel melalui metode transfer bank dan dompet digital guna memastikan 
+              keamanan dan kemudahan reservasi.</p>
           </div>
         </div>
 
