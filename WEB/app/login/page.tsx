@@ -50,6 +50,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
               // call backend → dapat user + token
               const data = await loginWithGoogleToken(token);
 
+              // 3. Update State Global:
               // simpan ke global store (Navlink akan ganti jadi foto Google)
               setUser(data.user);
 
