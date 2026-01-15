@@ -25,7 +25,7 @@ const Hero = () => {
 
                     <p className="text-sm md:text-lg text-gray-200 mb-10 leading-relaxed">
                         Nikmati pengalaman menginap eksklusif dengan harga terbaik
-                        di Hotel Bandar Lampung.
+                        di Hotel Khusus Kota Bandar Lampung.
                     </p>
 
                     {/* CTA */}
