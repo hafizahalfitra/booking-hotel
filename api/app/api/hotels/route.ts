@@ -21,6 +21,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json(
             {
                 error: 'Failed to fetch hotels',
+                // Menyertakan pesan error asli jika tersedia
                 message: error instanceof Error ? error.message : 'Unknown error',
                 stack: error instanceof Error ? error.stack : undefined
             },
