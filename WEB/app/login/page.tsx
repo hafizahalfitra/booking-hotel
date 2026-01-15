@@ -10,7 +10,7 @@ import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast"; 
 
-// Mengimpor fungsi API wrapper dan store manajemen state
+// Mengimpor fungsi API wrapper dan store manajemen state.
 // ikut struktur projectmu: src/lib & src/store
 import { loginWithGoogleToken } from "../../src/lib/auth";
 import { useAuth } from "../../src/store/auth";
