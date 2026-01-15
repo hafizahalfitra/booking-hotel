@@ -77,7 +77,7 @@ const AboutPage = () => {
                                 </div>
                                 <p className="text-gray-600 text-justify">
                                     Menyediakan akses mudah dan cepat untuk memesan berbagai pilihan
-                                    hotel dengan informasi transparan dan pelayanan terpercaya.
+                                    hotel di lampung dengan informasi transparan dan pelayanan terpercaya.
                                 </p>
                             </div>
                         </div>
