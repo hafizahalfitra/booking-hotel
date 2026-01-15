@@ -26,6 +26,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
   // NEXT_PUBLIC_GOOGLE_CLIENT_ID=...
 
   return (
+    // Membungkus komponen dengan Provider dari library Google OAuth
     <GoogleOAuthProvider clientId={clientId}>
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
         <h1 className="text-2xl font-semibold mb-2">Login ke Akun Kamu</h1>
