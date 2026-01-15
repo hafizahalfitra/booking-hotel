@@ -4,30 +4,39 @@ import Main from "@/components/main";
 
 export default function Home() {
   return (
-    <div className="bg-[#f7f4f1]">
+    <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
       <Hero />
 
-      <section className="max-w-screen-xl mx-auto px-4 py-24">
-        {/* Header Section */}
-        <div className="text-center max-w-2xl mx-auto">
-          {/* <span className="inline-block mb-3 text-sm uppercase tracking-widest text-[#C2A895] font-semibold">
-            Premium Hotel
-          </span> */}
+      <section className="relative max-w-screen-xl mx-auto px-6 py-32">
+        {/* Dekorasi Aksen Halus */}
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#C2A895] to-transparent opacity-40"></div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900">
-            Kamar & Harga
+        {/* Header Section */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-block mb-6 text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#C2A895] font-bold border-b border-[#C2A895]/30 pb-2">
+            Luxury Accommodations
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-light text-slate-900 tracking-tight leading-tight">
+            Kamar & <span className="italic font-serif text-[#C2A895]">Harga Terbaik</span>
           </h1>
 
-          <p className="mt-4 text-gray-600 leading-relaxed">
-            Pilihan kamar eksklusif dengan desain elegan dan kenyamanan maksimal
-            untuk pengalaman menginap yang berkelas.
-          </p>
+          <div className="mt-8 flex items-center justify-center gap-4">
+             <div className="h-[1px] w-8 bg-slate-200"></div>
+             <p className="text-slate-500 font-light max-w-md leading-relaxed text-sm md:text-base">
+                Temukan perpaduan sempurna antara estetika modern dan kenyamanan tak tertandingi di setiap sudut ruang kami.
+             </p>
+             <div className="h-[1px] w-8 bg-slate-200"></div>
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="mt-16">
+        {/* Content Wrapper dengan efek shadow halus */}
+        <div className="relative z-10 transition-all duration-700 ease-in-out">
           <Main />
         </div>
+
+        {/* Dekorasi Background Tambahan (Modern Shape) */}
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#C2A895]/5 rounded-full blur-[100px] -z-10"></div>
       </section>
     </div>
   );
