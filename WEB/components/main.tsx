@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Card from "@/components/card";
 
+// Definisi Interface
 interface Room {
     id: number;
     roomNumber: string;
