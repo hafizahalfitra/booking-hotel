@@ -10,6 +10,8 @@ export async function GET() {
     // --- KONFIGURASI CORS MANUAL ---
     // Mengizinkan akses dari origin mana pun (sangat penting jika frontend di localhost:3000 dan backend di 3001)
     response.headers.set('Access-Control-Allow-Origin', '*');
+    
+    // Menentukan metode HTTP apa saja yang diizinkan untuk diakses oleh client
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
