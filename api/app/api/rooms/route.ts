@@ -45,7 +45,3 @@ export async function GET() {
         );
     }
 }
-
-// Anda bisa menambahkan handler HTTP lain di file yang sama:
-// export async function POST(request: Request) { ... }
-// export async function PUT(request: Request) { ... }
