@@ -99,7 +99,7 @@ const Footer = () => {
                 <div className="pt-8 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="flex flex-col items-center md:items-start gap-1">
                         <p className="text-[11px] text-slate-500 font-medium tracking-wide">
-                            © 2026 HOTEL BANDAR LAMPUNG.
+                            © 2025 HOTEL BANDAR LAMPUNG.
                         </p>
                         <p className="text-[10px] text-slate-600 uppercase tracking-widest">
                             Refining Luxury Hospitality
