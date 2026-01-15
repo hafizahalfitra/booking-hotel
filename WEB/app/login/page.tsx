@@ -17,6 +17,8 @@ import { useAuth } from "../../src/store/auth";
 
 export default function LoginPage() {
   const router = useRouter();
+
+  // Mengambil fungsi setUser dari state management untuk menyimpan data user secara global
   const setUser = useAuth((s) => s.setUser);
 
 const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
