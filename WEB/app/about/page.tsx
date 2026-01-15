@@ -46,11 +46,10 @@ const AboutPage = () => {
                             Terbaik di Lampung
                         </h1>
 
-                        <p className="text-gray-600 leading-relaxed text-justify">
-                            Kami adalah platform pemesanan hotel yang berfokus pada penyediaan
-                            akomodasi terbaik di seluruh Provinsi Lampung. Dengan jaringan hotel
-                            yang luas, kami membantu traveler menemukan tempat menginap yang nyaman,
-                            sesuai kebutuhan, dan dengan harga terbaik.
+                        <p className="text-gray-600 leading-relaxed text-justify">Kami merupakan platform pemesanan
+                            hotel yang berkomitmen menyediakan layanan akomodasi terbaik di
+                            seluruh Provinsi Lampung melalui jaringan hotel yang terpercaya
+                            dan beragam.
                         </p>
 
                         {/* Visi & Misi */}
