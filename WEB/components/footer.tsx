@@ -80,7 +80,7 @@ const Footer = () => {
 
                 {/* COPYRIGHT */}
                 <div className="border-t border-gray-700 mt-12 pt-6 text-center text-sm text-gray-500">
-                    © 2025 Hotel Bandar Lampung. All rights reserved.
+                    © 2026 Hotel Bandar Lampung. All rights reserved.
                 </div>
 
             </div>
