@@ -129,6 +129,7 @@ const ContactPage = () => {
                 />
               </div>
 
+              {/* Tombol Submit dengan efek hover warna brand dan active scaling */}
               <button className="w-full bg-[#0A0F1A] hover:bg-[#C2A895] text-white py-5 rounded-2xl font-bold uppercase tracking-[0.2em] text-xs transition-all duration-500 shadow-xl shadow-slate-200 active:scale-[0.98] flex items-center justify-center gap-3">
                 <Send size={16} />
                 Kirim Pesan Sekarang
