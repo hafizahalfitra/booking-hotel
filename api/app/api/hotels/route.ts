@@ -23,6 +23,7 @@ export async function GET(req: NextRequest) {
                 error: 'Failed to fetch hotels',
                 // Menyertakan pesan error asli jika tersedia
                 message: error instanceof Error ? error.message : 'Unknown error',
+                // Stack trace hanya disertakan untuk membantu debugging di lingkungan development
                 stack: error instanceof Error ? error.stack : undefined
             },
             { status: 500 } // Status 500: Internal Server Error
