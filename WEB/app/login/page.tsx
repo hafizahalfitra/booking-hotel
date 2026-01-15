@@ -1,6 +1,11 @@
 // app/login/page.tsx
 "use client";
 
+/**
+ * Komponen Login Page:
+ * Menggunakan Client Component karena membutuhkan interaksi user (OAuth)
+ * dan akses ke browser API (localStorage/cookies via zustand).
+ */
 import { GoogleLogin, GoogleOAuthProvider } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
