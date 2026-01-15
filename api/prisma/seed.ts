@@ -6,7 +6,7 @@ async function main() {
     // Data Hotel di Lampung
     const hotels = [
         {
-            nama: 'Radisson Lampung Kedaton',
+            nama: 'Hotel Radisson Lampung Kedaton',
             alamat: 'Jalan Teuku Umar No.1, Kedaton, Kec. Kedaton, Kota Bandar Lampung',
             deskripsi: 'Hotel bintang 5 dengan kamar luas, spa, pusat kebugaran, dan pilihan tempat makan yang beragam',
             rating: 8.8,
