@@ -12,7 +12,7 @@ const ContactPage = () => {
         </h1>
         <p className="relative text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
           Kami siap membantu Anda menemukan pengalaman menginap terbaik dengan layanan profesional dan responsif
-          Khusus wilayah Bandar Lampung.
+          Khusus wilayah Provinsi Lampung.
         </p>
       </section>
 
