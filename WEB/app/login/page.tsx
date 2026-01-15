@@ -64,6 +64,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
                 },
               });
 
+              // 5. Navigasi: Mengarahkan user kembali ke halaman utama setelah sukses
               // langsung lempar ke HOME (app/page.tsx = "/")
               router.push("/");
             } catch (err: any) {
