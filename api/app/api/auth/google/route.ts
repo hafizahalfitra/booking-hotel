@@ -21,6 +21,7 @@ export function OPTIONS() {
   });
 }
 
+// Interface untuk validasi struktur data request dan payload Google
 interface GoogleLoginRequest {
   token: string;
 }
