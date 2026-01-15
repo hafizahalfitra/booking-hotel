@@ -13,6 +13,8 @@ export async function GET() {
     
     // Menentukan metode HTTP apa saja yang diizinkan untuk diakses oleh client
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+
+    // Menentukan header apa saja yang boleh dikirimkan oleh client (seperti Content-Type untuk JSON)
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     return response;
