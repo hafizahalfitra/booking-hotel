@@ -64,17 +64,17 @@ const ContactPage = () => {
                   badge: "bg-black",
                 },
                 {
-                  label: "Traveloka",
-                  value: "Reservasi via App",
+                  label: "Facebook",
+                  value: "Lampung Hotel",
                   bg: "bg-blue-50 hover:bg-blue-100",
-                  badge: "bg-blue-500",
+                  badge: "bg-[#1877F2]",
                 },
               ].map((item, i) => (
                 <div
                   key={i}
                   className={`flex items-center p-4 rounded-xl border transition cursor-pointer ${item.bg}`}
                 >
-                  <div className={`${item.badge} text-white px-3 py-2 rounded-lg mr-3 text-sm font-bold`}>
+                  <div className={`${item.badge} text-white px-3 py-2 rounded-lg mr-3 text-sm font-bold w-10 h-10 flex items-center justify-center`}>
                     {item.label[0]}
                   </div>
                   <div>
@@ -117,7 +117,7 @@ const ContactPage = () => {
                 <input
                   type={f.type}
                   placeholder={f.placeholder}
-                  className="w-full bg-gray-800 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-500 outline-none transition"
+                  className="w-full bg-gray-800 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#C9A24D] outline-none transition border border-gray-700"
                 />
               </div>
             ))}
@@ -129,7 +129,7 @@ const ContactPage = () => {
               <textarea
                 rows={4}
                 placeholder="Bagaimana kami bisa membantu Anda?"
-                className="w-full bg-gray-800 rounded-xl px-4 py-3 focus:ring-2 focus:ring-red-500 outline-none transition"
+                className="w-full bg-gray-800 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#C9A24D] outline-none transition border border-gray-700"
               />
             </div>
 
