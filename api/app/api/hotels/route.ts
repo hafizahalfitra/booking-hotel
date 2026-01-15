@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
                 message: error instanceof Error ? error.message : 'Unknown error',
                 stack: error instanceof Error ? error.stack : undefined
             },
-            { status: 500 }
+            { status: 500 } // Status 500: Internal Server Error
         );
     }
 }
