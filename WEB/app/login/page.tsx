@@ -55,6 +55,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
               setUser(data.user);
 
               // notifikasi cakep
+              // 4. Feedback Visual: Memberikan notifikasi sukses yang estetis
               toast.success("Berhasil login! Selamat datang", {
                 style: {
                   borderRadius: "10px",
