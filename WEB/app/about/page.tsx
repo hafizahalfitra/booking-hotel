@@ -3,6 +3,10 @@ import HeaderSection from "@/components/header-setion"
 import { IoEyeOutline, IoLocateOutline, IoStarOutline, IoShieldCheckmarkOutline, IoTrendingUpOutline } from "react-icons/io5"
 import Image from "next/image"
 
+/**
+ * METADATA: Digunakan untuk optimasi SEO pada halaman "Tentang Kami".
+ * Next.js akan merender ini ke dalam tag <head> secara otomatis.
+ */
 export const metadata: Metadata = {
     title: "Tentang Kami | Hotel Bandar Lampung",
     description: "Online Booking Hotel Bandar Lampung",
