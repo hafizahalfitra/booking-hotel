@@ -63,8 +63,7 @@ const AboutPage = () => {
                                     <h4 className="text-lg font-semibold">Visi</h4>
                                 </div>
                                 <p className="text-gray-600 text-justify">
-                                    Menjadi platform booking hotel nomor satu di Lampung dengan
-                                    pengalaman menginap yang mudah, cepat, dan memuaskan.
+                                    Menjadi platform booking hotel nomor satu di Lampung dengan pengalaman menginap yang mudah, cepat, dan memuaskan.
                                 </p>
                             </div>
 
