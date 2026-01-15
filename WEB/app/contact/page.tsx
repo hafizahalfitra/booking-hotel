@@ -1,4 +1,5 @@
 import React from "react";
+// Import icon dari library Lucide React untuk representasi visual yang minimalis
 import { 
   MessageSquare, 
   MapPin, 
