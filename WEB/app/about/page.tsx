@@ -53,7 +53,7 @@ const AboutPage = () => {
                     <div className="lg:col-span-5 space-y-10">
                         <div className="space-y-4">
                             <span className="inline-block px-4 py-1 rounded-full bg-[#C2A895]/10 text-[#C2A895] text-[10px] font-bold uppercase tracking-[0.3em]">
-                                Established 2014
+                                Established 2026
                             </span>
                             <h2 className="text-4xl md:text-5xl font-medium leading-[1.15] text-slate-900 tracking-tight">
                                 Memberikan Pengalaman <br />
