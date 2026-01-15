@@ -26,15 +26,17 @@ const ContactPage = () => {
           <div>
             <h3 className="text-xl font-bold uppercase tracking-wide mb-5 flex items-center gap-3">
               <span className="w-1.5 h-6 bg-[#C9A24D] rounded-full"></span>
-              Lokasi Kami
+              Pusat Website Kami
             </h3>
             <div className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
               <h4 className="font-bold text-lg mb-2">Lampung Hotel</h4>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Jl. Raden Intan No.88, Pelita, Kota Bandar Lampung, Lampung 35118
+                Platform pemesanan hotel berbasis digital yang melayani wilayah Lampung
+                dan sekitarnya.
               </p>
             </div>
           </div>
+
 
           {/* SOCIAL */}
           <div>
@@ -91,8 +93,8 @@ const ContactPage = () => {
             <h3 className="text-xl font-bold uppercase tracking-wide mb-4">
               Metode Pembayaran
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed">Proses pembayaran dilakukan secara 
-              langsung oleh pihak hotel melalui metode transfer bank dan dompet digital guna memastikan 
+            <p className="text-gray-600 text-sm leading-relaxed">Proses pembayaran dilakukan secara
+              langsung oleh pihak hotel melalui metode transfer bank dan dompet digital guna memastikan
               keamanan dan kemudahan reservasi.</p>
           </div>
         </div>
