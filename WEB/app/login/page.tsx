@@ -45,6 +45,8 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
                 return;
               }
 
+              // 2. Pertukaran Token (Token Exchange):
+              // Mengirim ID Token Google ke backend internal kita (api/auth/google)
               // call backend → dapat user + token
               const data = await loginWithGoogleToken(token);
 
