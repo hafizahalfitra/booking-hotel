@@ -57,7 +57,7 @@ const Card = ({ hotel }: CardProps) => {
     };
 
     return (
-        <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
+        <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full flex flex-col">
             
             {/* --- IMAGE SECTION --- */}
             <div className="relative h-[280px] overflow-hidden">
@@ -69,14 +69,13 @@ const Card = ({ hotel }: CardProps) => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 
-                {/* Gradient Overlay agar teks lebih terbaca jika ada elemen di atasnya */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
-                {/* Rating Badge - Modern Glassmorphism */}
+                {/* Rating Badge */}
                 {hotel.rating && (
                     <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-white/70 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm border border-white/20">
-                        <IoStarSharp className="text-[#C2A895]" />
-                        <span className="text-xs font-bold text-gray-800 tracking-wider">{hotel.rating}</span>
+                        <IoStarSharp className="text-[#C2A895] text-xs" />
+                        <span className="text-xs font-bold text-gray-800">{hotel.rating}</span>
                     </div>
                 )}
 
@@ -89,15 +88,17 @@ const Card = ({ hotel }: CardProps) => {
             </div>
 
             {/* --- CONTENT SECTION --- */}
-            <div className="p-8">
-                {/* Alamat - Small Header */}
-                <div className="flex items-center gap-1.5 text-[#C2A895] mb-2">
+            <div className="p-8 flex flex-col flex-grow">
+                {/* Alamat - Menggunakan Font Serif agar senada dengan Judul */}
+                <div className="flex items-center gap-1.5 text-[#C2A895] mb-1">
                     <IoLocationOutline className="text-sm" />
-                    <span className="text-[10px] uppercase font-bold tracking-[0.2em]">{hotel.alamat.split(',')[0]}</span>
+                    <span className="font-serif italic text-sm tracking-wide">
+                        {hotel.alamat.split(',')[0]}
+                    </span>
                 </div>
 
                 {/* Nama Hotel */}
-                <h4 className="text-2xl font-serif font-medium text-gray-900 mb-4 line-clamp-1 group-hover:text-[#C2A895] transition-colors">
+                <h4 className="text-2xl font-serif font-medium text-gray-900 mb-5 line-clamp-1 group-hover:text-[#C2A895] transition-colors">
                     {hotel.nama}
                 </h4>
 
@@ -109,29 +110,31 @@ const Card = ({ hotel }: CardProps) => {
                     </div>
                 </div>
 
-                <div className="h-[1px] w-full bg-gray-100 mb-6" />
+                <div className="mt-auto">
+                    <div className="h-[1px] w-full bg-gray-100 mb-6" />
 
-                {/* Footer: Price & CTA */}
-                <div className="flex items-center justify-between">
-                    <div>
-                        <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1 text-left">Mulai Dari</p>
-                        <div className="flex items-baseline gap-1">
-                            <span className="text-2xl font-black text-gray-900 leading-none">
-                                Rp{minPrice.toLocaleString("id-ID")}
-                            </span>
-                            <span className="text-xs text-gray-400 font-medium">/night</span>
+                    {/* Footer: Price & CTA */}
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-1">Mulai Dari</p>
+                            <div className="flex items-baseline gap-1">
+                                <span className="text-2xl font-black text-gray-900 leading-none">
+                                    Rp{minPrice.toLocaleString("id-ID")}
+                                </span>
+                                <span className="text-xs text-gray-400 font-medium">/night</span>
+                            </div>
                         </div>
+
+                        <button
+                            onClick={handleBooking}
+                            className="group/btn relative flex items-center justify-center w-14 h-14 bg-gray-900 rounded-2xl transition-all duration-300 hover:w-40 hover:bg-[#C2A895] active:scale-95 shadow-lg shadow-gray-200 text-white"
+                        >
+                            <div className="flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap px-4">
+                                <span className="hidden group-hover/btn:block text-sm font-bold transition-all duration-500">Book Room</span>
+                                <IoArrowForwardOutline className="text-xl shrink-0" />
+                            </div>
+                        </button>
                     </div>
-
-                    <button
-                        onClick={handleBooking}
-                        className="group/btn relative flex items-center justify-center w-14 h-14 bg-gray-900 rounded-2xl transition-all duration-300 hover:w-40 hover:bg-[#C2A895] active:scale-95 shadow-lg shadow-gray-200"
-                    >
-                        <div className="flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap px-4 text-white">
-                            <span className="hidden group-hover/btn:block text-sm font-bold transition-all duration-500">Book Room</span>
-                            <IoArrowForwardOutline className="text-xl shrink-0" />
-                        </div>
-                    </button>
                 </div>
             </div>
         </div>
