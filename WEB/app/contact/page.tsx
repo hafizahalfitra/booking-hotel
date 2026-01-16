@@ -1,13 +1,13 @@
 import React from "react";
-// Import icon dari library Lucide React untuk representasi visual yang minimalis
-import { 
-  MessageSquare, 
-  MapPin, 
-  Phone, 
-  Instagram, 
-  Twitter, 
-  Facebook, 
-  CreditCard, 
+// Import icon dari library Lucide React untuk representasi visual yang minimalis dan modern
+import {
+  MessageSquare,
+  MapPin,
+  Phone,
+  Instagram,
+  Twitter,
+  Facebook,
+  CreditCard,
   Send,
   Globe
 } from "lucide-react";
@@ -19,7 +19,7 @@ const ContactPage = () => {
       <section className="relative pt-32 pb-20 px-6 text-center overflow-hidden">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#C2A895]/5 blur-[120px] rounded-full -z-10"></div>
-        
+
         <span className="inline-block mb-4 text-[10px] uppercase tracking-[0.4em] text-[#C2A895] font-bold">
           Get in Touch
         </span>
@@ -33,10 +33,10 @@ const ContactPage = () => {
 
       {/* CONTENT GRID */}
       <main className="max-w-6xl mx-auto px-6 pb-32 grid lg:grid-cols-12 gap-16 items-start">
-        
+
         {/* LEFT COLUMN (Info) */}
         <div className="lg:col-span-5 space-y-12">
-          
+
           {/* HEADQUARTERS */}
           <div className="group">
             <div className="flex items-center gap-3 mb-6">
@@ -45,7 +45,7 @@ const ContactPage = () => {
               </div>
               <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">Pusat Informasi</h3>
             </div>
-            
+
             <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-slate-200/50 border border-slate-50 hover:border-[#C2A895]/30 transition-all duration-500">
               <h4 className="font-bold text-xl mb-3 text-slate-900 font-serif italic">Lampung Hotel Group</h4>
               <p className="text-slate-500 text-sm leading-relaxed font-light">
@@ -83,11 +83,11 @@ const ContactPage = () => {
 
           {/* PAYMENT POLICY */}
           <div className="p-8 bg-[#0A0F1A] rounded-[2rem] text-white relative overflow-hidden">
-             <CreditCard className="absolute -right-4 -bottom-4 w-24 h-24 text-white/5 rotate-12" />
-             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2A895] mb-4">Kebijakan Pembayaran</h3>
-             <p className="text-slate-400 text-xs leading-relaxed font-light">
-               Keamanan transaksi adalah prioritas kami. Seluruh proses pembayaran dilakukan secara transparan melalui mitra perbankan resmi atau dompet digital terverifikasi.
-             </p>
+            <CreditCard className="absolute -right-4 -bottom-4 w-24 h-24 text-white/5 rotate-12" />
+            <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2A895] mb-4">Kebijakan Pembayaran</h3>
+            <p className="text-slate-400 text-xs leading-relaxed font-light">
+              Keamanan transaksi adalah prioritas kami. Seluruh proses pembayaran dilakukan secara transparan melalui mitra perbankan resmi atau dompet digital terverifikasi.
+            </p>
           </div>
         </div>
 
@@ -95,7 +95,7 @@ const ContactPage = () => {
         <div className="lg:col-span-7">
           <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-slate-200 border border-slate-50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#C2A895]/5 rounded-bl-full"></div>
-            
+
             <div className="relative mb-10">
               <h3 className="text-2xl font-medium text-slate-900 mb-2">Kirim Pesan Langsung</h3>
               <p className="text-slate-400 text-sm font-light">Admin kami akan merespon pesan Anda dalam waktu maksimal 24 jam.</p>
