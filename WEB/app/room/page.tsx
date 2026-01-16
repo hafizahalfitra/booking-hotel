@@ -30,7 +30,7 @@ export default function RoomPage() {
     const router = useRouter();
     // Mengambil hotelId dari URL query (?hotelId=...)
     const hotelId = searchParams.get('hotelId');
-
+    // State Management untuk Data, Loading, dan Form Booking
     const [rooms, setRooms] = useState<Room[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
