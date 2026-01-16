@@ -69,7 +69,10 @@ export default function RoomPage() {
             setLoading(false);
         }
     };
-
+/**
+     * handleBooking: Inisialisasi proses booking.
+     * Mengambil data user yang tersimpan di localStorage untuk auto-fill form.
+     */
     const handleBooking = (room: Room) => {
         setSelectedRoom(room);
         const userStr = localStorage.getItem('user');
