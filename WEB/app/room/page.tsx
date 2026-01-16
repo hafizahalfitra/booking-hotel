@@ -41,6 +41,7 @@ export default function RoomPage() {
     const [email, setEmail] = useState('');
     const [noHp, setNoHp] = useState('');
     const [submitting, setSubmitting] = useState(false);
+    // State Modal: Mengontrol UI feedback sukses
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [bookingSuccessData, setBookingSuccessData] = useState<{ totalPrice: number } | null>(null);
 
