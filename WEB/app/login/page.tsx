@@ -58,8 +58,10 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
               // simpan ke global store (Navlink akan ganti jadi foto Google)
               setUser(data.user);
 
-              // notifikasi cakep
-              // 4. Feedback Visual: Memberikan notifikasi sukses yang estetis
+              /**
+               * STEP 4: Feedback Visual (User Experience)
+               * Memberikan notifikasi sukses dengan styling khusus agar terlihat premium.
+               */
               toast.success("Berhasil login! Selamat datang", {
                 style: {
                   borderRadius: "10px",
