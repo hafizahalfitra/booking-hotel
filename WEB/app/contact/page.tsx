@@ -70,6 +70,7 @@ const ContactPage = () => {
                 { label: "X / Twitter", val: "@lampunghotel", icon: <Twitter size={18} />, color: "hover:text-sky-500" },
                 { label: "Facebook", val: "Lampung Hotel", icon: <Facebook size={18} />, color: "hover:text-blue-600" },
               ].map((item, i) => (
+                // Iterasi data menggunakan .map()
                 <div key={i} className={`group flex items-center p-4 bg-white rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 ${item.color} hover:shadow-md cursor-pointer`}>
                   <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
                     {item.icon}
