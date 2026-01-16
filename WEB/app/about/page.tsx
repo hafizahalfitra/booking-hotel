@@ -29,7 +29,9 @@ const AboutPage = () => {
             <section className="max-w-screen-xl mx-auto py-24 px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
 
-                    {/* Left: Image Side (7 Columns) */}
+                    {/* Sisi Kiri: Gambar (7 Kolom) 
+                        Menggunakan container relative agar elemen floating di dalamnya bisa diposisikan secara absolut
+                    */}                    
                     <div className="lg:col-span-7 relative">
                         <div className="relative z-10 overflow-hidden rounded-[3rem] aspect-[4/5] md:aspect-video lg:aspect-square shadow-2xl">
                             <Image
