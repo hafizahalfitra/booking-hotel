@@ -16,6 +16,8 @@ const AboutPage = () => {
     return (
     // Wrapper Utama: Menggunakan background light gray dan memastikan tidak ada konten yang bocor ke samping (overflow-hidden)
         <div className="bg-[#FCFCFC] text-slate-900 overflow-hidden">
+            
+            {/* Memanggil Komponen Reusable HeaderSection untuk konsistensi UI antar halaman */}
             <HeaderSection
                 title="Tentang Kami"
                 subtitle="Mendefinisikan ulang standar kemewahan dan kenyamanan di gerbang Sumatera."
