@@ -36,7 +36,9 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
           Silakan login menggunakan akun Google.
         </p>
 
-        {/* Tombol Login Resmi Google */}
+        {/* Komponen Resmi GoogleLogin:
+          Menangani proses autentikasi (Pop-up login Google) secara otomatis.
+        */}
         <GoogleLogin
           onSuccess={async (credentialResponse) => {
             try {
