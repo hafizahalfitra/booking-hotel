@@ -20,7 +20,7 @@ export default function LoginPage() {
 
   // Mengambil fungsi setUser dari state management untuk menyimpan data user secara global
   const setUser = useAuth((s) => s.setUser);
-  
+
 // Mengambil Client ID dari Environment Variable untuk keamanan (Best Practice)
 const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
   // pastikan ini ada di .env.local:
@@ -30,6 +30,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
     // Membungkus komponen dengan Provider dari library Google OAuth
     <GoogleOAuthProvider clientId={clientId}>
       <div className="flex flex-col items-center justify-center min-h-[60vh] gap-4">
+        {/* UI Sederhana & User Friendly */}
         <h1 className="text-2xl font-semibold mb-2">Login ke Akun Kamu</h1>
         <p className="text-gray-600 mb-4 text-sm">
           Silakan login menggunakan akun Google.
