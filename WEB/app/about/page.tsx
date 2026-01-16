@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
+    // Wrapper Utama: Menggunakan background light gray dan memastikan tidak ada konten yang bocor ke samping (overflow-hidden)
         <div className="bg-[#FCFCFC] text-slate-900 overflow-hidden">
             <HeaderSection
                 title="Tentang Kami"
