@@ -60,7 +60,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* SOCIALS */}
+          {/* SOCIALS: Iterasi data menggunakan .map() untuk efisiensi kode (DRY Principle) */}
           <div className="space-y-6">
             <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 px-2">Saluran Reservasi</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
