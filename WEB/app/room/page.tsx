@@ -28,6 +28,7 @@ interface Room {
 export default function RoomPage() {
     const searchParams = useSearchParams();
     const router = useRouter();
+    // Mengambil hotelId dari URL query (?hotelId=...)
     const hotelId = searchParams.get('hotelId');
 
     const [rooms, setRooms] = useState<Room[]>([]);
