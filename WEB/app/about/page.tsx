@@ -146,7 +146,9 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            {/* SECTION 3 — MODERN STATS COUNTER */}
+            {/* SECTION 3: MODERN STATS COUNTER 
+                Menampilkan pencapaian kuantitatif perusahaan
+            */}
             <section className="py-32 bg-white">
                 <div className="max-w-screen-xl mx-auto px-6">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
