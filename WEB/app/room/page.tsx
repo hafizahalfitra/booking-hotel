@@ -82,7 +82,10 @@ export default function RoomPage() {
             setEmail(user.email || '');
         }
     };
-
+/**
+     * submitBooking: Fungsi utama untuk mengirim data transaksi.
+     * Menggunakan Authorization Bearer Token untuk keamanan transaksi.
+     */
     const submitBooking = async () => {
         if (!selectedRoom || !checkIn || !checkOut || !nama || !email || !noHp) {
             alert('Mohon lengkapi semua data pemesanan');
