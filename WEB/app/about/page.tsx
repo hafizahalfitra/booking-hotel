@@ -124,7 +124,7 @@ const AboutPage = () => {
                         </div>
                         <div className="hidden md:block w-32 h-[1px] bg-[#C2A895]/30 mb-4"></div>
                     </div>
-
+                    {/* Grid Core Values: 3 Kolom di Desktop */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             { icon: <IoStarOutline />, title: "Kurasi Premium", desc: "Hanya hotel dengan rating kepuasan di atas 4.5 yang masuk dalam daftar kami." },
