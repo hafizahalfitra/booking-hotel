@@ -131,6 +131,7 @@ const AboutPage = () => {
                             { icon: <IoShieldCheckmarkOutline />, title: "Keamanan Data", desc: "Protokol enkripsi tingkat bank untuk menjamin privasi identitas dan transaksi Anda." },
                             { icon: <IoTrendingUpOutline />, title: "Jaminan Harga", desc: "Harga transparan langsung dari pemilik properti tanpa biaya admin tambahan." }
                         ].map((item, idx) => (
+                            // Card dengan Glassmorphism effect (bg-white/5)
                             <div key={idx} className="group p-10 rounded-[2.5rem] bg-white/5 border border-white/10 hover:bg-white hover:border-white transition-all duration-500">
                                 <div className="text-[#C2A895] text-4xl mb-8 group-hover:scale-110 transition-transform duration-500">
                                     {item.icon}
