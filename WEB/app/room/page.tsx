@@ -44,7 +44,7 @@ export default function RoomPage() {
     // State Modal: Mengontrol UI feedback sukses
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [bookingSuccessData, setBookingSuccessData] = useState<{ totalPrice: number } | null>(null);
-
+// Memicu fetch data setiap kali ID Hotel di URL berubah
     useEffect(() => {
         fetchRooms();
     }, [hotelId]);
