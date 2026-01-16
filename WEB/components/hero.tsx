@@ -61,7 +61,7 @@ const Hero = () => {
                         hover:bg-white hover:text-[#0f172a] transition-all duration-500
                         active:scale-95 text-center"
                     >
-                        Hubungi Kami
+                        Contact
                     </Link>
                 </div>
             </div>
