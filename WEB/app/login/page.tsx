@@ -20,7 +20,8 @@ export default function LoginPage() {
 
   // Mengambil fungsi setUser dari state management untuk menyimpan data user secara global
   const setUser = useAuth((s) => s.setUser);
-
+  
+// Mengambil Client ID dari Environment Variable untuk keamanan (Best Practice)
 const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
   // pastikan ini ada di .env.local:
   // NEXT_PUBLIC_GOOGLE_CLIENT_ID=...
