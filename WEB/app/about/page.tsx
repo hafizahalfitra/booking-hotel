@@ -34,6 +34,7 @@ const AboutPage = () => {
                     */}                    
                     <div className="lg:col-span-7 relative">
                         <div className="relative z-10 overflow-hidden rounded-[3rem] aspect-[4/5] md:aspect-video lg:aspect-square shadow-2xl">
+                        {/* Optimasi Gambar Next.js: fill digunakan agar gambar mengikuti ukuran container-nya */}
                             <Image
                                 src="/about-image.jpg"
                                 fill
