@@ -65,6 +65,7 @@ const AboutPage = () => {
                     {/* Sisi Kanan: Narasi/Teks (5 Kolom) */}
                     <div className="lg:col-span-5 space-y-10">
                         <div className="space-y-4">
+                            {/* Badge tahun berdiri */}
                             <span className="inline-block px-4 py-1 rounded-full bg-[#C2A895]/10 text-[#C2A895] text-[10px] font-bold uppercase tracking-[0.3em]">
                                 Established 2026
                             </span>
