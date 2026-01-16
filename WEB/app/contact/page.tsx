@@ -95,7 +95,7 @@ const ContactPage = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN (Form) */}
+        {/* KOLOM KIRI: Informasi Kontak & Sosial Media (5 Kolom) */}
         <div className="lg:col-span-7">
           <div className="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-slate-200 border border-slate-50 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#C2A895]/5 rounded-bl-full"></div>
