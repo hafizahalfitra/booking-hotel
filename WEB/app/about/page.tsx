@@ -52,6 +52,7 @@ const AboutPage = () => {
                                     <p className="text-[#C2A895] text-5xl font-light tracking-tighter">12<span className="text-2xl font-bold italic">Th</span></p>
                                     <p className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold mt-1">Dedikasi Layanan</p>
                                 </div>
+                                {/* Divider/Garis Pemisah Vertikal */}
                                 <div className="w-[1px] h-12 bg-slate-200"></div>
                                 <div>
                                     <p className="text-slate-900 text-5xl font-light tracking-tighter">100<span className="text-2xl font-bold">+</span></p>
