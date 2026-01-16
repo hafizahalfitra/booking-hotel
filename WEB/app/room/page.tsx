@@ -3,6 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 
+/**
+ * Interface Room: Mendefinisikan kontrak data untuk Type Safety.
+ * Memastikan setiap properti kamar dan hotel memiliki tipe data yang benar.
+ */
+
 interface Room {
     id: number;
     roomNumber: string;
