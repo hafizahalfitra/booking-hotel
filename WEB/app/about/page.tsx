@@ -45,7 +45,7 @@ const AboutPage = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                         </div>
 
-                        {/* Floating Experience Card - Modern Style */}
+                        {/* Floating Experience Card: Elemen dekoratif yang menunjukkan angka statistik (hanya muncul di desktop/tablet) */}
                         <div className="absolute -bottom-10 -left-6 md:left-10 z-20 bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-white/50 hidden md:block">
                             <div className="flex items-center gap-6">
                                 <div>
