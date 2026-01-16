@@ -42,7 +42,7 @@ const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!;
         <GoogleLogin
           onSuccess={async (credentialResponse) => {
             try {
-              // 1. Ekstraksi ID Token (Credential) dari respon Google
+              // STEP 1: Ekstraksi ID Token yang dikirimkan oleh Google setelah user login
               const token = credentialResponse.credential;
               if (!token) {
                 toast.error("Token Google tidak ditemukan");
