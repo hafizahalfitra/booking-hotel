@@ -17,7 +17,7 @@ const ContactPage = () => {
     <div className="min-h-screen bg-[#FAF9F6] text-slate-900">
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 px-6 text-center overflow-hidden">
-        {/* Decorative Background Elements */}
+        {/* Dekorasi Background: Menggunakan efek blur transparan agar terlihat modern/premium */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-[#C2A895]/5 blur-[120px] rounded-full -z-10"></div>
 
         <span className="inline-block mb-4 text-[10px] uppercase tracking-[0.4em] text-[#C2A895] font-bold">
