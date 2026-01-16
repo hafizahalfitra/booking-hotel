@@ -39,7 +39,7 @@ const ContactPage = () => {
         {/* LEFT COLUMN (Info) */}
         <div className="lg:col-span-5 space-y-12">
 
-          {/* HEADQUARTERS */}
+          {/* HEADQUARTERS CARD */}
           <div className="group">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#C2A895] border border-slate-100">
