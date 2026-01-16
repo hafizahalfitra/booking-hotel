@@ -31,7 +31,9 @@ const ContactPage = () => {
         </p>
       </section>
 
-      {/* CONTENT GRID */}
+      {/* CONTENT GRID: Membagi halaman menjadi 12 kolom (Desktop)
+          lg:grid-cols-12 digunakan untuk pembagian porsi kiri (5) dan kanan (7)
+      */}
       <main className="max-w-6xl mx-auto px-6 pb-32 grid lg:grid-cols-12 gap-16 items-start">
 
         {/* LEFT COLUMN (Info) */}
