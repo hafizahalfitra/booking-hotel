@@ -50,7 +50,7 @@ const Hero = () => {
                         hover:bg-[#b39683] transition-all duration-300
                         shadow-2xl shadow-[#C2A895]/40 active:scale-95 w-full sm:w-auto text-center"
                     >
-                        <span className="relative z-10">Pesan Sekarang</span>
+                        <span className="relative z-10">Book Now</span>
                         <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white/30 opacity-40 group-hover:animate-[shine_0.75s]" />
                     </Link>
 
