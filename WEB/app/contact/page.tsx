@@ -104,7 +104,7 @@ const ContactPage = () => {
               <h3 className="text-2xl font-medium text-slate-900 mb-2">Kirim Pesan Langsung</h3>
               <p className="text-slate-400 text-sm font-light">Admin kami akan merespon pesan Anda dalam waktu maksimal 24 jam.</p>
             </div>
-
+            {/* Form Input: Menggunakan padding dan border-radius besar agar senada dengan desain luxury */}
             <form className="relative space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
