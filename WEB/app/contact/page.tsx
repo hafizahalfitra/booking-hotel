@@ -84,7 +84,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          {/* PAYMENT POLICY */}
+          {/* PAYMENT POLICY: Kartu bertema gelap (Dark Mode) untuk memberikan variasi visual */}
           <div className="p-8 bg-[#0A0F1A] rounded-[2rem] text-white relative overflow-hidden">
             <CreditCard className="absolute -right-4 -bottom-4 w-24 h-24 text-white/5 rotate-12" />
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#C2A895] mb-4">Kebijakan Pembayaran</h3>
