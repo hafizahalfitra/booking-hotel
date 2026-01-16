@@ -38,7 +38,7 @@ const Hero = () => {
                 {/* Deskripsi */}
                 <p className="text-sm md:text-xl text-gray-200/90 max-w-2xl mb-12 leading-relaxed font-light">
                     Nikmati pengalaman menginap eksklusif dengan harga terbaik <br className="hidden md:block" />
-                    di Hotel Khusus Kota Bandar Lampung.
+                    di Hotel Khusus Provinsi Lampung.
                 </p>
 
                 {/* CTA Buttons */}
