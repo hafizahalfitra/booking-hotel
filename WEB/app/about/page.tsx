@@ -79,6 +79,7 @@ const AboutPage = () => {
                             Kami bukan sekadar platform pemesanan. Kami adalah kurator perjalanan Anda di Lampung, memastikan setiap sudut kamar yang Anda pesan mencerminkan standar kualitas yang kami jaga dengan ketat.
                         </p>
 
+                        {/* Iterasi/Mapping Visi & Misi: Teknik DRY (Don't Repeat Yourself) agar kode lebih bersih */}
                         <div className="space-y-6">
                             {[
                                 {
