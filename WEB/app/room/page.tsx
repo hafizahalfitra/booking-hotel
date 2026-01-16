@@ -49,6 +49,10 @@ export default function RoomPage() {
         fetchRooms();
     }, [hotelId]);
 
+    /**
+     * fetchRooms: Mengambil semua data kamar dan melakukan filter 
+     * berdasarkan ID Hotel yang dipilih user.
+     */
     const fetchRooms = async () => {
         try {
             const response = await fetch(`http://localhost:3001/api/rooms`);
