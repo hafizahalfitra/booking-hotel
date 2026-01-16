@@ -147,7 +147,10 @@ export default function RoomPage() {
         setEmail('');
         setNoHp('');
     };
-
+/**
+     * calculateDays: Menghitung selisih hari antara check-in dan check-out
+     * menggunakan objek Date bawaan JavaScript.
+     */
     const calculateDays = () => {
         if (!checkIn || !checkOut) return 0;
         const start = new Date(checkIn);
