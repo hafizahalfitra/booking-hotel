@@ -108,7 +108,9 @@ const AboutPage = () => {
                 </div>
             </section>
 
-            {/* SECTION 2 — CORE VALUES (Premium Minimalist) */}
+            {/* SECTION 2: CORE VALUES (Tema Dark/Premium) 
+                Menggunakan background kontras (#0A0F1A) untuk membedakan antar section
+            */}
             <section className="bg-[#0A0F1A] py-32 relative">
                 <div className="max-w-screen-xl mx-auto px-6 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
