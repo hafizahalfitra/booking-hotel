@@ -14,19 +14,21 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
-    // Wrapper Utama: Menggunakan background light gray dan memastikan tidak ada konten yang bocor ke samping (overflow-hidden)
+        // Wrapper Utama: Menggunakan background light gray dan memastikan tidak ada konten yang bocor ke samping (overflow-hidden)
         <div className="bg-[#FCFCFC] text-slate-900 overflow-hidden">
-            
+
             {/* Memanggil Komponen Reusable HeaderSection untuk konsistensi UI antar halaman */}
             <HeaderSection
                 title="Tentang Kami"
                 subtitle="Mendefinisikan ulang standar kemewahan dan kenyamanan di gerbang Sumatera."
             />
 
-            {/* SECTION 1 — STORY & IMAGE HERO */}
+            {/* SECTION 1: STORY & HERO IMAGE 
+                Menggunakan sistem Grid 12 kolom untuk layout yang presisi di layar desktop
+            */}
             <section className="max-w-screen-xl mx-auto py-24 px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                    
+
                     {/* Left: Image Side (7 Columns) */}
                     <div className="lg:col-span-7 relative">
                         <div className="relative z-10 overflow-hidden rounded-[3rem] aspect-[4/5] md:aspect-video lg:aspect-square shadow-2xl">
@@ -39,7 +41,7 @@ const AboutPage = () => {
                             {/* Overlay Gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                         </div>
-                        
+
                         {/* Floating Experience Card - Modern Style */}
                         <div className="absolute -bottom-10 -left-6 md:left-10 z-20 bg-white/80 backdrop-blur-xl p-8 rounded-[2rem] shadow-xl border border-white/50 hidden md:block">
                             <div className="flex items-center gap-6">
@@ -74,15 +76,15 @@ const AboutPage = () => {
 
                         <div className="space-y-6">
                             {[
-                                { 
-                                    icon: <IoEyeOutline />, 
-                                    title: "Visi Global", 
-                                    desc: "Menjadi standar emas digitalisasi perhotelan di Indonesia." 
+                                {
+                                    icon: <IoEyeOutline />,
+                                    title: "Visi Global",
+                                    desc: "Menjadi standar emas digitalisasi perhotelan di Indonesia."
                                 },
-                                { 
-                                    icon: <IoLocateOutline />, 
-                                    title: "Misi Lokal", 
-                                    desc: "Memberdayakan akomodasi lokal dengan teknologi kelas dunia." 
+                                {
+                                    icon: <IoLocateOutline />,
+                                    title: "Misi Lokal",
+                                    desc: "Memberdayakan akomodasi lokal dengan teknologi kelas dunia."
                                 }
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-6 group">
