@@ -41,7 +41,7 @@ const AboutPage = () => {
                                 alt="Modern Interior"
                                 className="object-cover transform hover:scale-110 transition-transform duration-[2s]"
                             />
-                            {/* Overlay Gradient */}
+                            {/* Overlay Gradient: Memberikan efek gelap tipis di bagian bawah gambar agar kontras */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                         </div>
 
