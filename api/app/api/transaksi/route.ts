@@ -111,6 +111,7 @@ export async function GET(req: NextRequest) {
         const { searchParams } = new URL(req.url);
         const email = searchParams.get('email');
 
+        // Validasi parameter email wajib ada
         if (!email) {
             return NextResponse.json({ error: 'Email required' }, { status: 400 });
         }
