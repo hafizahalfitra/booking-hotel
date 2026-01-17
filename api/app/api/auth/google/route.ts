@@ -81,6 +81,7 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
+    // 3. Pastikan token Google ada di dalam request
     if (!body.token) {
       return jsonResponse(
         { success: false, message: "Missing Google token" },
