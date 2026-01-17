@@ -55,7 +55,9 @@ export default function MyReservationPage() {
                 return;
             }
 
+            // Request Data ke API
             try {
+                // Mengirim request GET dengan query param email user
                 const response = await fetch(
                     `http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`,
                     {
