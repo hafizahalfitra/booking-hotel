@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 // Endpoint ini dilindungi (butuh token JWT)
 export async function POST(req: NextRequest) {
     try {
-        // 1. Verifikasi Header Authorization
+        // Verifikasi Header Authorization
         const authHeader = req.headers.get('authorization');
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
             return NextResponse.json(
@@ -15,13 +15,13 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // 2. Ekstrak dan Verifikasi Token JWT
+        // Ekstrak dan Verifikasi Token JWT
         // Jika token invalid atau expired, jwt.verify akan throw error yang ditangkap di catch block
 
         const token = authHeader.substring(7);
         jwt.verify(token, process.env.JWT_SECRET!);
 
-        // 3. Parsing dan Validasi Input Body
+        // Parsing dan Validasi Input Body
         const body = await req.json();
         const { roomId, checkIn, checkOut, jumlahTamu, nama, email, noHp } = body;
 
