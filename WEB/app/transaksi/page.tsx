@@ -191,7 +191,7 @@ export default function MyReservationPage() {
                                         <div>
                                             <p className="text-xs uppercase text-gray-400">Check-in</p>
                                             <p className="font-semibold">
-                                                // 
+                                                // Format Tanggal Indonesia (dd/mm/yyyy)
                                                 {new Date(trx.checkIn).toLocaleDateString('id-ID')}
                                             </p>
                                         </div>
