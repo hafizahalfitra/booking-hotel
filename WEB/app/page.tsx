@@ -33,6 +33,8 @@ export default function Home() {
           </span>
 
           //  Main Heading
+          // Teknik 'Mixed Typography': Menggabungkan font Sans-Serif (Modern) 
+              dengan Serif Italic (Klasik/Elegan) pada kata "Harga Terbaik"
           <h1 className="text-4xl md:text-6xl font-light text-slate-900 tracking-tight leading-tight">
             Kamar & <span className="italic font-serif text-[#C2A895]">Harga Terbaik</span>
           </h1>
