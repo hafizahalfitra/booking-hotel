@@ -58,10 +58,12 @@ export default function MyReservationPage() {
             // Request Data ke API
             try {
                 // Mengirim request GET dengan query param email user
+                // encodeURIComponent digunakan agar karakter spesial di email (seperti @) aman di URL
                 const response = await fetch(
                     `http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`,
                     {
                         headers: {
+                            
                             'Authorization': `Bearer ${localStorage.getItem('token')}`
                         }
                     }
