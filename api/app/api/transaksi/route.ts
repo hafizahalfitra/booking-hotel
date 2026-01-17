@@ -84,6 +84,7 @@ export async function POST(req: NextRequest) {
                 totalPrice,
                 status: 'pending'
             },
+            // Mengambil relasi room & hotel agar response ke frontend lengkap
             include: {
                 room: {
                     include: {
