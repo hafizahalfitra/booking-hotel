@@ -58,9 +58,10 @@ export async function POST(req: NextRequest) {
         }
 
         // Kalkulasi Harga Total
-        // Hitung total harga (jumlah hari * harga per malam)
+        // Konversi string tanggal ke object Date
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
+        
         const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
         const totalPrice = room.price * days;
 
