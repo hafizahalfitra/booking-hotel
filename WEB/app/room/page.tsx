@@ -44,7 +44,7 @@ export default function RoomPage() {
     // State Modal: Mengontrol UI feedback sukses
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [bookingSuccessData, setBookingSuccessData] = useState<{ totalPrice: number } | null>(null);
-// Memicu fetch data setiap kali ID Hotel di URL berubah
+    // Memicu fetch data setiap kali ID Hotel di URL berubah
     useEffect(() => {
         fetchRooms();
     }, [hotelId]);
@@ -69,10 +69,10 @@ export default function RoomPage() {
             setLoading(false);
         }
     };
-/**
-     * handleBooking: Inisialisasi proses booking.
-     * Mengambil data user yang tersimpan di localStorage untuk auto-fill form.
-     */
+    /**
+         * handleBooking: Inisialisasi proses booking.
+         * Mengambil data user yang tersimpan di localStorage untuk auto-fill form.
+         */
     const handleBooking = (room: Room) => {
         setSelectedRoom(room);
         const userStr = localStorage.getItem('user');
@@ -82,10 +82,10 @@ export default function RoomPage() {
             setEmail(user.email || '');
         }
     };
-/**
-     * submitBooking: Fungsi utama untuk mengirim data transaksi.
-     * Menggunakan Authorization Bearer Token untuk keamanan transaksi.
-     */
+    /**
+         * submitBooking: Fungsi utama untuk mengirim data transaksi.
+         * Menggunakan Authorization Bearer Token untuk keamanan transaksi.
+         */
     const submitBooking = async () => {
         if (!selectedRoom || !checkIn || !checkOut || !nama || !email || !noHp) {
             alert('Mohon lengkapi semua data pemesanan');
@@ -147,10 +147,10 @@ export default function RoomPage() {
         setEmail('');
         setNoHp('');
     };
-/**
-     * calculateDays: Menghitung selisih hari antara check-in dan check-out
-     * menggunakan objek Date bawaan JavaScript.
-     */
+    /**
+         * calculateDays: Menghitung selisih hari antara check-in dan check-out
+         * menggunakan objek Date bawaan JavaScript.
+         */
     const calculateDays = () => {
         if (!checkIn || !checkOut) return 0;
         const start = new Date(checkIn);
