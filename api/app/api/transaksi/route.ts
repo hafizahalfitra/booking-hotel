@@ -25,6 +25,7 @@ export async function POST(req: NextRequest) {
         const body = await req.json();
         const { roomId, checkIn, checkOut, jumlahTamu, nama, email, noHp } = body;
 
+        // Pastikan semua field wajib terisi
         if (!roomId || !checkIn || !checkOut || !jumlahTamu || !nama || !email || !noHp) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
