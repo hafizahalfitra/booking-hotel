@@ -104,7 +104,7 @@ export async function POST(req: NextRequest) {
     }
 }
 
-// GET - Ambil daftar transaksi user
+// GET - Mengambil riwayat transaksi berdasarkan Email User
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url);
