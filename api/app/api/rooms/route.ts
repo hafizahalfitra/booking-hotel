@@ -21,6 +21,9 @@ export async function GET() {
                 // Hanya ambil kamar yang tersedia (isAvailable: true)
                 isAvailable: true,
             },
+            
+            // 2. Eager Loading (Join): 
+            // Menarik data hotel tempat kamar tersebut berada (mengambil nama hotel, alamat, dll)
             include: {
                 hotel: true
             },
