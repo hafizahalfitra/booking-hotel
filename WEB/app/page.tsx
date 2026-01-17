@@ -59,7 +59,7 @@ export default function Home() {
           <Main />
         </div>
 
-        {/* Dekorasi Background Tambahan (Modern Shape) */}
+        // Dekorasi Background Tambahan (Modern Shape) 
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#C2A895]/5 rounded-full blur-[100px] -z-10"></div>
       </section>
     </div>
