@@ -23,7 +23,7 @@ export default function Home() {
         // Fungsinya sebagai "Leading Line" untuk memandu mata user dari Hero ke konten di bawahnya
         <div className="absolute top-24 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#C2A895] to-transparent opacity-40"></div>
 
-        {/* Header Section */}
+        // --- HEADER TEXT SECTION ---
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="inline-block mb-6 text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#C2A895] font-bold border-b border-[#C2A895]/30 pb-2">
             Luxury Accommodations
