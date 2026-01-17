@@ -13,7 +13,8 @@ export default function Home() {
       <Hero />
 
       // Content Section Wrapper
-      
+      // 'relative' diperlukan agar elemen dekorasi 'absolute' di dalamnya 
+          bisa memposisikan diri relatif terhadap section ini, bukan body
       <section className="relative max-w-screen-xl mx-auto px-6 py-32">
         {/* Dekorasi Aksen Halus */}
         <div className="absolute top-24 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#C2A895] to-transparent opacity-40"></div>
