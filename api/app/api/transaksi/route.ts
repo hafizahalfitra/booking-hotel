@@ -47,6 +47,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // Validasi status ketersediaan room (Flag isAvailable)
         if (!room.isAvailable) {
             return NextResponse.json(
                 { error: 'Room is not available' },
