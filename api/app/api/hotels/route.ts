@@ -21,6 +21,7 @@ export async function GET(req: NextRequest) {
             include: {
                 rooms: true
             },
+            // 'orderBy': Mengurutkan hasil berdasarkan rating tertinggi ke terendah
             orderBy: {
                 rating: 'desc'
             }
