@@ -10,8 +10,10 @@ export default function Home() {
       // Main Content Wrapper:
       // - Membatasi lebar maksimal (max-w-3xl) agar konten tidak terlalu lebar di layar besar.
       // - Pada layar kecil (mobile), item disusun vertikal (flex-col items-center).
-      
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+      // - Pada layar lebih besar (sm:), item rata kiri (sm:items-start).
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">\
+
+        
         <Image
           className="dark:invert"
           src="/next.svg"
