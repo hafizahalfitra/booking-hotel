@@ -21,6 +21,7 @@ export async function POST(req: NextRequest) {
         const token = authHeader.substring(7);
         jwt.verify(token, process.env.JWT_SECRET!);
 
+        // 3. Parsing dan Validasi Input Body
         const body = await req.json();
         const { roomId, checkIn, checkOut, jumlahTamu, nama, email, noHp } = body;
 
