@@ -28,6 +28,8 @@ interface Transaction {
 
 export default function MyReservationPage() {
     const router = useRouter();
+
+    // State Management
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [loading, setLoading] = useState(true);
 
