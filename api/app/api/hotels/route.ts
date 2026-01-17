@@ -28,6 +28,7 @@ export async function GET(req: NextRequest) {
         });
         console.log(`Found ${hotels.length} hotels`);
 
+        // Mengembalikan data hotel dalam format JSON dengan status default 200 (OK)
         return NextResponse.json(hotels);
     } catch (error) {
         console.error('Error fetching hotels:', error);
