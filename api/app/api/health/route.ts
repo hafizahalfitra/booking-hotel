@@ -23,7 +23,10 @@ export async function GET() {
      */
     response.headers.set('Access-Control-Allow-Origin', '*');
     
-    // Menentukan metode HTTP apa saja yang diizinkan untuk diakses oleh client
+    /**
+     * Access-Control-Allow-Methods
+     * Memberitahu browser bahwa API ini mendukung metode GET, POST, hingga DELETE.
+     */
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 
     // Menentukan header apa saja yang boleh dikirimkan oleh client (seperti Content-Type untuk JSON)
