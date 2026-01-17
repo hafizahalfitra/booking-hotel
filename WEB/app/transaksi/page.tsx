@@ -30,7 +30,9 @@ export default function MyReservationPage() {
     const router = useRouter();
 
     // State Management
+    // transactions: Array untuk menyimpan daftar riwayat pesanan
     const [transactions, setTransactions] = useState<Transaction[]>([]);
+    
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
