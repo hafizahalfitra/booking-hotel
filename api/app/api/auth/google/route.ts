@@ -1,4 +1,5 @@
 // app/api/auth/google/route.ts
+// Memastikan route ini selalu dieksekusi di server (bukan statis) dan menggunakan runtime Node.js
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
