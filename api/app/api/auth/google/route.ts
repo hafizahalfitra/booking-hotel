@@ -99,6 +99,7 @@ export async function POST(req: Request): Promise<Response> {
     // Mengambil data user (payload) dari ticket hasil verifikasi
     const payload = ticket.getPayload() as UserPayload | undefined;
 
+    // Validasi data minimal: email harus tersedia
     if (!payload || !payload.email) {
       return jsonResponse(
         { success: false, message: "Invalid Google token payload" },
