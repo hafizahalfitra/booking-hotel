@@ -32,7 +32,7 @@ export default function MyReservationPage() {
     // State Management
     // transactions: Array untuk menyimpan daftar riwayat pesanan
     const [transactions, setTransactions] = useState<Transaction[]>([]);
-    
+    // transactions: Array untuk menyimpan daftar riwayat pesanan
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
