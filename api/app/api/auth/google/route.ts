@@ -43,6 +43,10 @@ interface UserPayload {
   email_verified?: boolean | null;
 }
 
+/**
+ * Helper function untuk mengembalikan Response dalam format JSON
+ * Menyertakan header CORS secara otomatis pada setiap response.
+ */
 function jsonResponse(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
