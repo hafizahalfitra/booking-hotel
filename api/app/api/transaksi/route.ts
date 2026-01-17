@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 // Endpoint ini dilindungi (butuh token JWT)
 export async function POST(req: NextRequest) {
     try {
+        // 1. Verifikasi Header Authorization
         const authHeader = req.headers.get('authorization');
         if (!authHeader || !authHeader.startsWith('Bearer ')) {
             return NextResponse.json(
