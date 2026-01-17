@@ -76,6 +76,8 @@ export default function MyReservationPage() {
             } catch (error) {
                 console.error(error);
             } finally {
+                // Matikan Loading
+                
                 setLoading(false);
             }
         };
