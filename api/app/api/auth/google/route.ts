@@ -9,6 +9,10 @@ import jwt from "jsonwebtoken";
 // Inisialisasi Google OAuth Client menggunakan Client ID dari environment variable
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
+/**
+ * Konfigurasi CORS (Cross-Origin Resource Sharing)
+ * Digunakan agar API dapat diakses dari domain frontend yang berbeda.
+ */
 const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
