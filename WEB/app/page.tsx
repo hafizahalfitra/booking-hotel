@@ -27,7 +27,7 @@ export default function Home() {
         <div className="text-center max-w-3xl mx-auto mb-20">
 
           // Eyebrow Text / Kicker: Teks kecil di atas judul utama
-          
+          // tracking-[0.4em] membuat huruf sangat renggang, ciri khas desain mewah
           <span className="inline-block mb-6 text-[10px] md:text-xs uppercase tracking-[0.4em] text-[#C2A895] font-bold border-b border-[#C2A895]/30 pb-2">
             Luxury Accommodations
           </span>
