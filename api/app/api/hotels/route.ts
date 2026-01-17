@@ -33,6 +33,11 @@ export async function GET(req: NextRequest) {
     } catch (error) {
         // Logging error secara detail untuk kebutuhan perbaikan (debugging)
         console.error('Error fetching hotels:', error);
+
+        /**
+         * Mengembalikan respon error ke client.
+         * Status 500 (Internal Server Error) mengindikasikan masalah pada server/database.
+         */
         return NextResponse.json(
             {
                 error: 'Failed to fetch hotels',
