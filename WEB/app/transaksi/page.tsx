@@ -185,12 +185,13 @@ export default function MyReservationPage() {
                                     </div>
                                 </div>
 
-                                {/* Right */}
+                                // Kolom Kanan: Tanggal & Harga
                                 <div className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <p className="text-xs uppercase text-gray-400">Check-in</p>
                                             <p className="font-semibold">
+                                                // 
                                                 {new Date(trx.checkIn).toLocaleDateString('id-ID')}
                                             </p>
                                         </div>
