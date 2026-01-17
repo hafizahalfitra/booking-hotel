@@ -164,7 +164,7 @@ export default function MyReservationPage() {
 
                             // Detail Transaksi: Grid Layout
                             <div className="grid md:grid-cols-2 gap-8">
-                                {/* Left */}
+                                // Kolom Kiri: Info Kamar & Kontak
                                 <div className="space-y-4">
                                     <div>
                                         <p className="text-xs uppercase text-gray-400">Tipe Kamar</p>
