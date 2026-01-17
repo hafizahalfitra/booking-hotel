@@ -70,6 +70,7 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
+    // 2. Parsing teks mentah menjadi objek JSON
     let body: GoogleLoginRequest;
     try {
       body = JSON.parse(raw);
