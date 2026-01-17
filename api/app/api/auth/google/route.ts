@@ -118,9 +118,10 @@ export async function POST(req: Request): Promise<Response> {
     // 6. Pembuatan JWT Aplikasi (App Token)
     // Token ini yang akan digunakan user untuk mengakses endpoint yang diproteksi di aplikasi kita.
     const appToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET!, {
-      expiresIn: "1d",
+      expiresIn: "1d", // Token berlaku selama 1 hari
     });
 
+    // 7. Kirim response sukses beserta data user dan token baru
     return jsonResponse(
       {
         success: true,
