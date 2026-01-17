@@ -38,6 +38,7 @@ export default function MyReservationPage() {
     // useEffect: Dijalankan sekali saat halaman pertama kali dimuat (karena dependency array [router])
     useEffect(() => {
         const fetchTransactions = async () => {
+            // Cek Keamanan / Auth Guard
             const userStr = localStorage.getItem('user');
             if (!userStr) {
                 router.push('/login');
