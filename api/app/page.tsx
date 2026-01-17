@@ -15,6 +15,7 @@ export default function Home() {
 
         // Komponen Image Next.js:
         // - Otomatis mengoptimalkan ukuran dan format gambar.
+        // - Prop 'priority': Memuat gambar ini lebih dulu (LCP Optimization) karena berada di atas lipatan layar.
         
         <Image
           className="dark:invert"
