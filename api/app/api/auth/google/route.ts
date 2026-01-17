@@ -89,6 +89,8 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
+    // 4. Verifikasi ID Token ke server Google menggunakan library google-auth-library
+    // Proses ini memastikan token asli, belum expired, dan ditujukan untuk Client ID kita.
     const ticket = await client.verifyIdToken({
       idToken: body.token,
       audience: process.env.GOOGLE_CLIENT_ID,
