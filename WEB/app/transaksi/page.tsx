@@ -159,7 +159,7 @@ export default function MyReservationPage() {
                                 </span>
                             </div>
 
-                            {/* Divider */}
+                           // Garis Pemisah
                             <div className="h-px bg-gray-200 mb-6" />
 
                             {/* Content */}
