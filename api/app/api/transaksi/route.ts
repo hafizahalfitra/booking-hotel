@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
         }
 
         // 2. Ekstrak dan Verifikasi Token JWT
+        // Jika token invalid atau expired, jwt.verify akan throw error yang ditangkap di catch block
 
         const token = authHeader.substring(7);
         jwt.verify(token, process.env.JWT_SECRET!);
