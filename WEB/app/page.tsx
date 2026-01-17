@@ -43,8 +43,12 @@ export default function Home() {
           <div className="mt-8 flex items-center justify-center gap-4">
             // Garis dekoratif kiri
             <div className="h-[1px] w-8 bg-slate-200"></div>
+            
             <p className="text-slate-500 font-light max-w-md leading-relaxed text-sm md:text-base">
-              Setiap sudut ruang dirancang dengan sentuhan modern yang estetis dan kenyamanan yang tak tertandingi.             </p>
+              Setiap sudut ruang dirancang dengan sentuhan modern yang estetis dan kenyamanan yang tak tertandingi.            
+            </p>
+
+            
             <div className="h-[1px] w-8 bg-slate-200"></div>
           </div>
         </div>
