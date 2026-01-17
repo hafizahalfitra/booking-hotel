@@ -107,6 +107,7 @@ export async function POST(req: Request): Promise<Response> {
       );
     }
 
+    // 5. Normalisasi data user untuk kebutuhan aplikasi
     const user = {
       name: payload.name || "",
       email: payload.email,
