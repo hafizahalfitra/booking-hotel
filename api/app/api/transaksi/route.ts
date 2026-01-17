@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
-        // Cek apakah room tersedia
+        // Cek Ketersediaan Room di Database
         const room = await prisma.room.findUnique({
             where: { id: roomId },
             include: { hotel: true }
