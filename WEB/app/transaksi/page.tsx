@@ -3,8 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Interface: Mendefinisikan struktur data transaksi yang diterima dari API
-// Ini harus sesuai dengan response JSON dari backend (Prisma)
 interface Transaction {
     id: number;
     checkIn: string;
@@ -28,42 +26,29 @@ interface Transaction {
 
 export default function MyReservationPage() {
     const router = useRouter();
-
-    // State Management
-    // transactions: Array untuk menyimpan daftar riwayat pesanan
     const [transactions, setTransactions] = useState<Transaction[]>([]);
-    // loading: Indikator untuk menampilkan spinner saat data sedang diambil
     const [loading, setLoading] = useState(true);
 
-    // useEffect: Dijalankan sekali saat halaman pertama kali dimuat (karena dependency array [router])
     useEffect(() => {
         const fetchTransactions = async () => {
-            // Cek Keamanan / Auth Guard
-            // Mengambil data user dari localStorage
             const userStr = localStorage.getItem('user');
 
-            // Jika user belum login, redirect paksa ke halaman login
             if (!userStr) {
                 router.push('/login');
                 return;
             }
 
             const user = JSON.parse(userStr);
-            // Validasi tambahan jika object user tidak memiliki email
             if (!user.email) {
                 alert('User email not found in session');
                 return;
             }
 
-            // Request Data ke API
             try {
-                // Mengirim request GET dengan query param email user
-                // encodeURIComponent digunakan agar karakter spesial di email (seperti @) aman di URL
                 const response = await fetch(
                     `http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`,
                     {
                         headers: {
-                            // Menyertakan Token JWT untuk lolos verifikasi di backend
                             'Authorization': `Bearer ${localStorage.getItem('token')}`
                         }
                     }
@@ -76,8 +61,6 @@ export default function MyReservationPage() {
             } catch (error) {
                 console.error(error);
             } finally {
-                // Matikan Loading
-                // Dijalankan baik request sukses maupun gagal agar UI tidak stuck
                 setLoading(false);
             }
         };
@@ -85,7 +68,6 @@ export default function MyReservationPage() {
         fetchTransactions();
     }, [router]);
 
-    // Tampilan Loading State (Skeleton/Spinner)
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
@@ -94,10 +76,9 @@ export default function MyReservationPage() {
         );
     }
 
-    // Tampilan Utama
     return (
         <div className="max-w-6xl mx-auto px-4 py-10">
-            // Bagian Judul Halaman
+            {/* Bagian Judul Halaman */}
             <div className="mb-10">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                     Riwayat Pesanan
@@ -107,11 +88,8 @@ export default function MyReservationPage() {
                 </p>
             </div>
 
-            // Logika Conditional Rendering:
-            // Jika data kosong -> Tampilkan pesan 'Belum ada pesanan'
-            // Jika data ada -> Tampilkan list kartu transaksi
             {transactions.length === 0 ? (
-                // --- EMPTY STATE ---
+                /* --- EMPTY STATE --- */
                 <div className="bg-white rounded-3xl shadow-sm p-10 text-center">
                     <p className="text-gray-500 mb-6">
                         Belum ada pesanan yang tercatat
@@ -124,18 +102,16 @@ export default function MyReservationPage() {
                     </button>
                 </div>
             ) : (
-                //  --- LIST TRANSAKSI ---
+                /* --- LIST TRANSAKSI --- */
                 <div className="space-y-6">
-                    // Mapping data array menjadi elemen JSX
                     {transactions.map((trx) => (
                         <div
                             key={trx.id}
                             className="bg-white rounded-3xl shadow-sm hover:shadow-md transition p-6 md:p-8"
                         >
-                            // Header Card: Nama Hotel & Status
+                            {/* Header Card: Nama Hotel & Status */}
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                                 <div>
-                                    // Optional chaining (?.) digunakan untuk mencegah error jika data hotel null
                                     <h2 className="text-xl font-bold text-gray-900">
                                         {trx.room?.hotel?.nama}
                                     </h2>
@@ -144,8 +120,6 @@ export default function MyReservationPage() {
                                     </p>
                                 </div>
 
-                                // Badge Status Dinamis
-                                // Mengubah warna background/text berdasarkan status (confirmed/pending/cancelled)
                                 <span
                                     className={`px-4 py-1.5 rounded-full text-sm font-semibold w-fit
                                     ${trx.status === 'confirmed'
@@ -159,12 +133,11 @@ export default function MyReservationPage() {
                                 </span>
                             </div>
 
-                           // Garis Pemisah
                             <div className="h-px bg-gray-200 mb-6" />
 
-                            // Detail Transaksi: Grid Layout
+                            {/* Detail Transaksi: Grid Layout */}
                             <div className="grid md:grid-cols-2 gap-8">
-                                // Kolom Kiri: Info Kamar & Kontak
+                                {/* Kolom Kiri: Info Kamar & Kontak */}
                                 <div className="space-y-4">
                                     <div>
                                         <p className="text-xs uppercase text-gray-400">Tipe Kamar</p>
@@ -185,13 +158,12 @@ export default function MyReservationPage() {
                                     </div>
                                 </div>
 
-                                // Kolom Kanan: Tanggal & Harga
+                                {/* Kolom Kanan: Tanggal & Harga */}
                                 <div className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <p className="text-xs uppercase text-gray-400">Check-in</p>
                                             <p className="font-semibold">
-                                                // Format Tanggal Indonesia (dd/mm/yyyy)
                                                 {new Date(trx.checkIn).toLocaleDateString('id-ID')}
                                             </p>
                                         </div>
@@ -208,7 +180,6 @@ export default function MyReservationPage() {
                                             Total Pembayaran
                                         </p>
                                         <p className="text-2xl font-bold text-blue-700">
-                                            // Format Mata Uang Rupiah
                                             Rp {trx.totalPrice.toLocaleString('id-ID')}
                                         </p>
                                     </div>
