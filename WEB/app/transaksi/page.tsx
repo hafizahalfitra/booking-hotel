@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // Interface: Mendefinisikan struktur data transaksi yang diterima dari API
+// Ini harus sesuai dengan response JSON dari backend (Prisma)
 interface Transaction {
     id: number;
     checkIn: string;
