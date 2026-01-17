@@ -39,6 +39,7 @@ export default function Home() {
             Kamar & <span className="italic font-serif text-[#C2A895]">Harga Terbaik</span>
           </h1>
 
+          // Description dengan Separator Lines
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="h-[1px] w-8 bg-slate-200"></div>
             <p className="text-slate-500 font-light max-w-md leading-relaxed text-sm md:text-base">
