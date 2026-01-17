@@ -37,5 +37,6 @@ export async function GET() {
      */
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
+    // Mengembalikan response yang sudah ditempeli header CORS di atas
     return response;
 }
