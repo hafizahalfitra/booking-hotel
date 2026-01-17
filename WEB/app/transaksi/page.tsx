@@ -85,6 +85,7 @@ export default function MyReservationPage() {
         fetchTransactions();
     }, [router]);
 
+    // Tampilan Loading State (Skeleton/Spinner)
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
