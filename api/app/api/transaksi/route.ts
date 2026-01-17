@@ -121,7 +121,7 @@ export async function GET(req: NextRequest) {
             where: {
                 email: {
                     equals: email,
-                    
+                    // Mode 'insensitive' membuat pencarian tidak peduli huruf besar/kecil
                     mode: 'insensitive'
                 }
             },
