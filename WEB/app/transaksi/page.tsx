@@ -41,6 +41,8 @@ export default function MyReservationPage() {
             // Cek Keamanan / Auth Guard
             // Mengambil data user dari localStorage
             const userStr = localStorage.getItem('user');
+
+            // Jika user belum login, redirect paksa ke halaman login
             if (!userStr) {
                 router.push('/login');
                 return;
