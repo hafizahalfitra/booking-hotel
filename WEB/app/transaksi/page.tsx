@@ -111,6 +111,7 @@ export default function MyReservationPage() {
             // Jika data kosong -> Tampilkan pesan 'Belum ada pesanan'
             // Jika data ada -> Tampilkan list kartu transaksi
             {transactions.length === 0 ? (
+                // --- EMPTY STATE ---
                 <div className="bg-white rounded-3xl shadow-sm p-10 text-center">
                     <p className="text-gray-500 mb-6">
                         Belum ada pesanan yang tercatat
