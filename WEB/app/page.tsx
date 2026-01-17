@@ -53,7 +53,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Content Wrapper dengan efek shadow halus */}
+        // --- MAIN CONTENT (List Kamar/Hotel) ---
         <div className="relative z-10 transition-all duration-700 ease-in-out">
           <Main />
         </div>
