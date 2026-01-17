@@ -17,13 +17,13 @@ export default function Home() {
           bisa memposisikan diri relatif terhadap section ini, bukan body
       <section className="relative max-w-screen-xl mx-auto px-6 py-32">
         
-        // --- DEKORASI VISUAL (Aesthetic Elements) ---
+        /* --- DEKORASI VISUAL (Aesthetic Elements) --- */
 
         // Vertical Line Gradient: Garis tipis vertikal di tengah atas
         // Fungsinya sebagai "Leading Line" untuk memandu mata user dari Hero ke konten di bawahnya
         <div className="absolute top-24 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#C2A895] to-transparent opacity-40"></div>
 
-        // --- HEADER TEXT SECTION ---
+        /* --- HEADER TEXT SECTION --- */
         <div className="text-center max-w-3xl mx-auto mb-20">
 
           // Eyebrow Text / Kicker: Teks kecil di atas judul utama
