@@ -13,6 +13,8 @@ export default function Home() {
       // - Pada layar lebih besar (sm:), item rata kiri (sm:items-start).
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">\
 
+        // Komponen Image Next.js:
+        // - Otomatis mengoptimalkan ukuran dan format gambar.
         
         <Image
           className="dark:invert"
