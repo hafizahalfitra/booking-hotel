@@ -10,6 +10,11 @@ export async function GET(req: NextRequest) {
     console.log('=== Hotels API Called ===');
     try {
         console.log('Fetching hotels from database...');
+
+        /**
+         * Mengambil data hotel menggunakan Prisma
+         * .findMany() : Mengambil banyak record sekaligus
+         */
         const hotels = await prisma.hotel.findMany({
             include: {
                 rooms: true
