@@ -30,11 +30,12 @@ export function OPTIONS() {
   });
 }
 
-// Interface untuk validasi struktur data request dan payload Google
+// Interface untuk validasi struktur data request dari frontend
 interface GoogleLoginRequest {
   token: string;
 }
 
+// Interface untuk memetakan data profil yang dikembalikan oleh Google
 interface UserPayload {
   name?: string | null;
   email?: string | null;
