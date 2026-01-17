@@ -2,21 +2,11 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    // Container Utama: Mengatur tinggi minimal selayar (min-h-screen)
-    // dan memusatkan konten di tengah (items-center justify-center)
-    // Mendukung Dark Mode (dark:bg-black)
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-
-      // Main Content Wrapper:
-      // - Membatasi lebar maksimal (max-w-3xl) agar konten tidak terlalu lebar di layar besar.
-      // - Pada layar kecil (mobile), item disusun vertikal (flex-col items-center).
-      // - Pada layar lebih besar (sm:), item rata kiri (sm:items-start).
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">\
-
-        // Komponen Image Next.js:
-        // - Otomatis mengoptimalkan ukuran dan format gambar.
-        // - Prop 'priority': Memuat gambar ini lebih dulu (LCP Optimization) karena berada di atas lipatan layar.
-        // - dark:invert membalik warna logo saat mode gelap agar tetap terlihat.
+      {/* Main Content Wrapper */}
+      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        
+        {/* Logo Next.js dengan Optimasi LCP */}
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -26,7 +16,7 @@ export default function Home() {
           priority
         />
 
-        // Bagian Teks (Judul & Deskripsi)
+        {/* Bagian Judul & Deskripsi */}
         <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
             To get started, edit the page.tsx file.
@@ -50,16 +40,14 @@ export default function Home() {
           </p>
         </div>
 
-        // Bagian Tombol Action (Deploy & Docs)
+        {/* Action Buttons */}
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-
-          // Tombol Deploy Now
-          // Menggunakan variable CSS (bg-foreground) yang biasanya didefinisikan di globals.css
+          {/* Tombol Deploy */}
           <a
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
-            rel="noopener noreferrer" // Keamanan standar untuk link eksternal (target="_blank")
+            rel="noopener noreferrer"
           >
             <Image
               className="dark:invert"
@@ -70,7 +58,8 @@ export default function Home() {
             />
             Deploy Now
           </a>
-          // Tombol Documentation
+
+          {/* Tombol Dokumentasi */}
           <a
             className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
