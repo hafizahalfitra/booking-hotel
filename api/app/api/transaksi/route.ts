@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
             include: { hotel: true }
         });
 
+        // Validasi keberadaan room
         if (!room) {
             return NextResponse.json(
                 { error: 'Room not found' },
