@@ -54,6 +54,10 @@ function jsonResponse(data: unknown, status = 200): Response {
   });
 }
 
+/**
+ * Handler Utama POST
+ * Menerima ID Token dari Google, memvalidasinya, dan menukarnya dengan JWT aplikasi.
+ */
 export async function POST(req: Request): Promise<Response> {
   try {
     // 1. Membaca body request sebagai teks mentah
