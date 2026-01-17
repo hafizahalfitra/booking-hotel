@@ -65,6 +65,8 @@ export async function POST(req: NextRequest) {
         // Hitung selisih waktu dalam miliseconds lalu konversi ke hari
         // Rumus: (selisih ms) / (1000ms * 60detik * 60menit * 24jam)
         const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
+
+        // Pastikan minimal 1 hari jika check-in dan check-out di hari yang sama (opsional logic)
         const totalPrice = room.price * days;
 
         // Buat transaksi
