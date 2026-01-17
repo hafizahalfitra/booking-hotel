@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
  * Biasanya digunakan untuk mengecek apakah backend sudah "up" atau aktif.
  */
 export async function GET() {
+    // 1. Inisialisasi object response dengan format JSON
     const response = NextResponse.json({
         status: "OK",
         message: "API is running on port 3001",
