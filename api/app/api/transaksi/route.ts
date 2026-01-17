@@ -79,6 +79,7 @@ export async function POST(req: NextRequest) {
                 nama,
                 email,
                 noHp,
+                // Menyimpan snapshot tipe kamar & harga saat transaksi dibuat
                 tipeKamar: room.roomType,
                 totalPrice,
                 status: 'pending'
