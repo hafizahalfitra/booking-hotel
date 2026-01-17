@@ -35,6 +35,7 @@ export default function MyReservationPage() {
     // loading: Indikator untuk menampilkan spinner saat data sedang diambil
     const [loading, setLoading] = useState(true);
 
+    // useEffect: Dijalankan sekali saat halaman pertama kali dimuat (karena dependency array [router])
     useEffect(() => {
         const fetchTransactions = async () => {
             const userStr = localStorage.getItem('user');
