@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// Interface: Mendefinisikan struktur data transaksi yang diterima dari API
 interface Transaction {
     id: number;
     checkIn: string;
