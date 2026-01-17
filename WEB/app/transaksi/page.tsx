@@ -63,7 +63,7 @@ export default function MyReservationPage() {
                     `http://localhost:3001/api/transaksi?email=${encodeURIComponent(user.email)}`,
                     {
                         headers: {
-                            
+                            // Menyertakan Token JWT untuk lolos verifikasi di backend
                             'Authorization': `Bearer ${localStorage.getItem('token')}`
                         }
                     }
