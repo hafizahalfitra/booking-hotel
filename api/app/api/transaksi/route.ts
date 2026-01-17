@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
         // Pastikan minimal 1 hari jika check-in dan check-out di hari yang sama (opsional logic)
         const totalPrice = room.price * days;
 
-        // Buat transaksi
+        // Simpan Transaksi ke Database
         const transaksi = await prisma.transaksi.create({
             data: {
                 roomId,
