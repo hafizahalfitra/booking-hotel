@@ -131,6 +131,7 @@ export async function POST(req: Request): Promise<Response> {
       200
     );
   } catch (error) {
+    // Log error di server untuk debugging 
     console.error("ERROR API:", error);
     return jsonResponse(
       { success: false, message: "Server error", error: String(error) },
