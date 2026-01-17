@@ -19,7 +19,7 @@ export default function Home() {
         
         // --- DEKORASI VISUAL (Aesthetic Elements) ---
 
-        // 
+        // Vertical Line Gradient: Garis tipis vertikal di tengah atas
         <div className="absolute top-24 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#C2A895] to-transparent opacity-40"></div>
 
         {/* Header Section */}
