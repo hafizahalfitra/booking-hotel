@@ -13,7 +13,14 @@ export async function GET() {
     });
 
     // --- KONFIGURASI CORS MANUAL ---
-    // Mengizinkan akses dari origin mana pun (sangat penting jika frontend di localhost:3000 dan backend di 3001)
+    // Bagian ini krusial agar aplikasi Frontend (misal: React/Next.js di port 3000) 
+    // bisa mengambil data dari API ini (di port 3001).
+
+    /**
+     * Access-Control-Allow-Origin
+     * '*': Mengizinkan semua domain. 
+     * Catatan: Untuk keamanan produksi, ganti '*' dengan domain spesifik frontend Anda.
+     */
     response.headers.set('Access-Control-Allow-Origin', '*');
     
     // Menentukan metode HTTP apa saja yang diizinkan untuk diakses oleh client
