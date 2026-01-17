@@ -132,7 +132,7 @@ export default function MyReservationPage() {
                             key={trx.id}
                             className="bg-white rounded-3xl shadow-sm hover:shadow-md transition p-6 md:p-8"
                         >
-                            {/* Header Card */}
+                            // Header Card: Nama Hotel & Status
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                                 <div>
                                     <h2 className="text-xl font-bold text-gray-900">
