@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 
+/**
+ * Handler GET - Mengambil daftar hotel
+ * Endpoint ini biasanya diakses melalui: GET /api/hotels
+ */
 export async function GET(req: NextRequest) {
     console.log('=== Hotels API Called ===');
     try {
