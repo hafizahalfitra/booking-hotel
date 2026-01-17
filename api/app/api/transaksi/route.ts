@@ -88,7 +88,7 @@ export async function POST(req: NextRequest) {
             include: {
                 room: {
                     include: {
-                        hotel: true
+                        hotel: true // Sertakan info hotel untuk detail history
                     }
                 }
             }
