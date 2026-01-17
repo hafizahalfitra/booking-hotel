@@ -16,7 +16,7 @@ export default function Home() {
         // Komponen Image Next.js:
         // - Otomatis mengoptimalkan ukuran dan format gambar.
         // - Prop 'priority': Memuat gambar ini lebih dulu (LCP Optimization) karena berada di atas lipatan layar.
-        
+        // - dark:invert membalik warna logo saat mode gelap agar tetap terlihat.
         <Image
           className="dark:invert"
           src="/next.svg"
