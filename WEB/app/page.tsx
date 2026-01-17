@@ -4,6 +4,7 @@ import Main from "@/components/main";
 
 export default function Home() {
   return (
+    // Container Utama
     <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
       <Hero />
 
