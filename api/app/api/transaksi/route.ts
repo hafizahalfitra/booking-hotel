@@ -116,10 +116,12 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: 'Email required' }, { status: 400 });
         }
 
+        // Query Database
         const transactions = await prisma.transaksi.findMany({
             where: {
                 email: {
                     equals: email,
+                    
                     mode: 'insensitive'
                 }
             },
