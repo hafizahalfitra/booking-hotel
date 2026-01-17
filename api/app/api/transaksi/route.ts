@@ -61,7 +61,8 @@ export async function POST(req: NextRequest) {
         // Konversi string tanggal ke object Date
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
-        
+
+        // Hitung selisih waktu dalam miliseconds lalu konversi ke hari
         const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
         const totalPrice = room.price * days;
 
