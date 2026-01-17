@@ -145,6 +145,7 @@ export default function MyReservationPage() {
                                 </div>
 
                                 // Badge Status Dinamis
+                                // Mengubah warna background/text berdasarkan status (confirmed/pending/cancelled)
                                 <span
                                     className={`px-4 py-1.5 rounded-full text-sm font-semibold w-fit
                                     ${trx.status === 'confirmed'
