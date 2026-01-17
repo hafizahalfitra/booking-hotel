@@ -3,6 +3,7 @@ import prisma from '@/utils/prisma';
 import jwt from 'jsonwebtoken';
 
 // POST - Buat transaksi baru
+// Endpoint ini dilindungi (butuh token JWT)
 export async function POST(req: NextRequest) {
     try {
         const authHeader = req.headers.get('authorization');
