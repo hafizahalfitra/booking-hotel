@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
 
         // Validasi status ketersediaan room (Flag isAvailable)
         // Catatan: Logic ini hanya mengecek status boolean global kamar,
+        // belum mengecek bentrok tanggal dengan reservasi lain.
         if (!room.isAvailable) {
             return NextResponse.json(
                 { error: 'Room is not available' },
