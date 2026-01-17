@@ -57,6 +57,7 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // Kalkulasi Harga Total
         // Hitung total harga (jumlah hari * harga per malam)
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
