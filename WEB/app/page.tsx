@@ -54,6 +54,7 @@ export default function Home() {
         </div>
 
         // --- MAIN CONTENT (List Kamar/Hotel) ---
+        // z-10 memastikan konten ini bisa diklik dan berada DI ATAS elemen dekorasi background
         <div className="relative z-10 transition-all duration-700 ease-in-out">
           <Main />
         </div>
