@@ -6,6 +6,7 @@ import prisma from '@/utils/prisma';
  * Endpoint ini biasanya diakses melalui: GET /api/hotels
  */
 export async function GET(req: NextRequest) {
+    // Logging sederhana untuk memantau aktivitas API di console terminal
     console.log('=== Hotels API Called ===');
     try {
         console.log('Fetching hotels from database...');
