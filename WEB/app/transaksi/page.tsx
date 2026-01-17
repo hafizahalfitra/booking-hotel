@@ -39,6 +39,7 @@ export default function MyReservationPage() {
     useEffect(() => {
         const fetchTransactions = async () => {
             // Cek Keamanan / Auth Guard
+            // Mengambil data user dari localStorage
             const userStr = localStorage.getItem('user');
             if (!userStr) {
                 router.push('/login');
