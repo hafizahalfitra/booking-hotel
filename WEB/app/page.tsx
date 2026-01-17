@@ -9,7 +9,7 @@ export default function Home() {
     // untuk mengurangi ketegangan mata dan memberikan kesan lebih 'warm' & premium.
     <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
 
-      // 1. Hero Section: Komponen banner utama di paling ata
+      // Hero Section: Komponen banner utama di paling ata
       <Hero />
 
       // Content Section Wrapper
