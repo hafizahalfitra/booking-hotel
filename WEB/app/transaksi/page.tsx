@@ -49,6 +49,7 @@ export default function MyReservationPage() {
             }
 
             const user = JSON.parse(userStr);
+            // Validasi tambahan jika object user tidak memiliki email
             if (!user.email) {
                 alert('User email not found in session');
                 return;
