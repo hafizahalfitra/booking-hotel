@@ -6,6 +6,7 @@ export default function Home() {
   return (
     // Container Utama
     // Menggunakan warna bg-[#FAF9F6] (Off-White/Alabaster) alih-alih putih murni
+    // untuk mengurangi ketegangan mata dan memberikan kesan lebih 'warm' & premium.
     <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
       <Hero />
 
