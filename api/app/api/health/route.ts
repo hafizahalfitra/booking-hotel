@@ -29,7 +29,12 @@ export async function GET() {
      */
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 
-    // Menentukan header apa saja yang boleh dikirimkan oleh client (seperti Content-Type untuk JSON)
+    /**
+     * Access-Control-Allow-Headers
+     * Mengizinkan client mengirim header khusus seperti:
+     * - Content-Type: Penting untuk pengiriman data JSON (application/json).
+     * - Authorization: Penting jika API ini nantinya butuh login/token.
+     */
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
     return response;
