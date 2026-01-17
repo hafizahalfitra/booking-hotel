@@ -16,6 +16,7 @@ export async function GET() {
     try {
         // Logika untuk memanggil Prisma dan mendapatkan data kamar
         const rooms = await prisma.room.findMany({
+            // 1. Filter: Hanya menampilkan kamar yang statusnya 'true' (siap huni)
             where: {
                 // Hanya ambil kamar yang tersedia (isAvailable: true)
                 isAvailable: true,
