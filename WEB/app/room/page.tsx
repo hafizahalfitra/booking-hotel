@@ -215,7 +215,7 @@ export default function RoomPage() {
                                     disabled={!room.isAvailable}
                                     className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-all active:scale-95"
                                 >
-                                    {room.isAvailable ? 'Book Now' : 'Habis Terjual'}
+                                    {room.isAvailable ? 'Pesan Sekarang' : 'Habis Terjual'}
                                 </button>
                             </div>
                         </div>

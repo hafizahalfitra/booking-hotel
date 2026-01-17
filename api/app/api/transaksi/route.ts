@@ -2,74 +2,54 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/utils/prisma';
 import jwt from 'jsonwebtoken';
 
-// POST - Buat transaksi baru
-// Endpoint ini dilindungi (butuh token JWT)
+/**
+ * POST - Membuat transaksi reservasi baru
+ */
 export async function POST(req: NextRequest) {
     try {
-        // Verifikasi Header Authorization
+        // Auth Validation
         const authHeader = req.headers.get('authorization');
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return NextResponse.json(
-                { error: 'Unauthorized' },
-                { status: 401 }
-            );
+        if (!authHeader?.startsWith('Bearer ')) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 
-        // Ekstrak dan Verifikasi Token JWT
-        // Jika token invalid atau expired, jwt.verify akan throw error yang ditangkap di catch block
-
+        // JWT Verification
         const token = authHeader.substring(7);
         jwt.verify(token, process.env.JWT_SECRET!);
 
-        // Parsing dan Validasi Input Body
+        // Request Body Parsing
         const body = await req.json();
         const { roomId, checkIn, checkOut, jumlahTamu, nama, email, noHp } = body;
 
-        // Pastikan semua field wajib terisi
+        // Validation: Required fields
         if (!roomId || !checkIn || !checkOut || !jumlahTamu || !nama || !email || !noHp) {
-            return NextResponse.json(
-                { error: 'Missing required fields' },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        // Cek Ketersediaan Room di Database
+        // Database Check: Room existence
         const room = await prisma.room.findUnique({
             where: { id: roomId },
             include: { hotel: true }
         });
 
-        // Validasi keberadaan room
         if (!room) {
-            return NextResponse.json(
-                { error: 'Room not found' },
-                { status: 404 }
-            );
+            return NextResponse.json({ error: 'Room not found' }, { status: 404 });
         }
 
-        // Validasi status ketersediaan room (Flag isAvailable)
-        // Catatan: Logic ini hanya mengecek status boolean global kamar,
-        // belum mengecek bentrok tanggal dengan reservasi lain.
+        // Validation: Availability status
         if (!room.isAvailable) {
-            return NextResponse.json(
-                { error: 'Room is not available' },
-                { status: 400 }
-            );
+            return NextResponse.json({ error: 'Room is not available' }, { status: 400 });
         }
 
-        // Kalkulasi Harga Total
-        // Konversi string tanggal ke object Date
+        // Calculation: Total price based on days
         const checkInDate = new Date(checkIn);
         const checkOutDate = new Date(checkOut);
-
-        // Hitung selisih waktu dalam miliseconds lalu konversi ke hari
-        // Rumus: (selisih ms) / (1000ms * 60detik * 60menit * 24jam)
-        const days = Math.ceil((checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 60 * 60 * 24));
-
-        // Pastikan minimal 1 hari jika check-in dan check-out di hari yang sama (opsional logic)
+        const diffInMs = checkOutDate.getTime() - checkInDate.getTime();
+        const days = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+        
         const totalPrice = room.price * days;
 
-        // Simpan Transaksi ke Database
+        // DB Transaction: Save data with snapshots
         const transaksi = await prisma.transaksi.create({
             data: {
                 roomId,
@@ -79,17 +59,13 @@ export async function POST(req: NextRequest) {
                 nama,
                 email,
                 noHp,
-                // Menyimpan snapshot tipe kamar & harga saat transaksi dibuat
                 tipeKamar: room.roomType,
                 totalPrice,
                 status: 'pending'
             },
-            // Mengambil relasi room & hotel agar response ke frontend lengkap
             include: {
                 room: {
-                    include: {
-                        hotel: true // Sertakan info hotel untuk detail history
-                    }
+                    include: { hotel: true }
                 }
             }
         });
@@ -104,32 +80,28 @@ export async function POST(req: NextRequest) {
     }
 }
 
-// GET - Mengambil riwayat transaksi berdasarkan Email User
+/**
+ * GET - Mengambil riwayat transaksi berdasarkan email
+ */
 export async function GET(req: NextRequest) {
     try {
-        // Ambil query parameter dari URL
         const { searchParams } = new URL(req.url);
         const email = searchParams.get('email');
 
-        // Validasi parameter email wajib ada
         if (!email) {
             return NextResponse.json({ error: 'Email required' }, { status: 400 });
         }
 
-        // Query Database
         const transactions = await prisma.transaksi.findMany({
             where: {
                 email: {
                     equals: email,
-                    // Mode 'insensitive' membuat pencarian tidak peduli huruf besar/kecil
-                    mode: 'insensitive'
+                    mode: 'insensitive' // Case-insensitive search
                 }
             },
             include: {
                 room: {
-                    include: {
-                        hotel: true
-                    }
+                    include: { hotel: true }
                 }
             },
             orderBy: {

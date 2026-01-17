@@ -59,7 +59,7 @@ export default function MyReservationPage() {
                     setTransactions(data);
                 }
             } catch (error) {
-                console.error(error);
+                console.error('Fetch error:', error);
             } finally {
                 setLoading(false);
             }
@@ -78,7 +78,7 @@ export default function MyReservationPage() {
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-10">
-            {/* Bagian Judul Halaman */}
+            {/* Header */}
             <div className="mb-10">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
                     Riwayat Pesanan
@@ -89,7 +89,7 @@ export default function MyReservationPage() {
             </div>
 
             {transactions.length === 0 ? (
-                /* --- EMPTY STATE --- */
+                /* Empty State */
                 <div className="bg-white rounded-3xl shadow-sm p-10 text-center">
                     <p className="text-gray-500 mb-6">
                         Belum ada pesanan yang tercatat
@@ -102,14 +102,13 @@ export default function MyReservationPage() {
                     </button>
                 </div>
             ) : (
-                /* --- LIST TRANSAKSI --- */
+                /* Transaction List */
                 <div className="space-y-6">
                     {transactions.map((trx) => (
                         <div
                             key={trx.id}
                             className="bg-white rounded-3xl shadow-sm hover:shadow-md transition p-6 md:p-8"
                         >
-                            {/* Header Card: Nama Hotel & Status */}
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
                                 <div>
                                     <h2 className="text-xl font-bold text-gray-900">
@@ -135,20 +134,17 @@ export default function MyReservationPage() {
 
                             <div className="h-px bg-gray-200 mb-6" />
 
-                            {/* Detail Transaksi: Grid Layout */}
                             <div className="grid md:grid-cols-2 gap-8">
-                                {/* Kolom Kiri: Info Kamar & Kontak */}
+                                {/* Guest & Room Info */}
                                 <div className="space-y-4">
                                     <div>
                                         <p className="text-xs uppercase text-gray-400">Tipe Kamar</p>
                                         <p className="font-semibold">{trx.tipeKamar}</p>
                                     </div>
-
                                     <div>
                                         <p className="text-xs uppercase text-gray-400">Nomor Kamar</p>
                                         <p className="font-semibold">{trx.room?.roomNumber}</p>
                                     </div>
-
                                     <div>
                                         <p className="text-xs uppercase text-gray-400">Pemesan</p>
                                         <p className="font-semibold">{trx.nama}</p>
@@ -158,7 +154,7 @@ export default function MyReservationPage() {
                                     </div>
                                 </div>
 
-                                {/* Kolom Kanan: Tanggal & Harga */}
+                                {/* Schedule & Pricing */}
                                 <div className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
