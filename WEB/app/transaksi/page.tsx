@@ -126,6 +126,7 @@ export default function MyReservationPage() {
             ) : (
                 //  --- LIST TRANSAKSI ---
                 <div className="space-y-6">
+                    // Mapping data array menjadi elemen JSX
                     {transactions.map((trx) => (
                         <div
                             key={trx.id}
