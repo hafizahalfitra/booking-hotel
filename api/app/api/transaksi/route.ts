@@ -15,6 +15,8 @@ export async function POST(req: NextRequest) {
             );
         }
 
+        // 2. Ekstrak dan Verifikasi Token JWT
+
         const token = authHeader.substring(7);
         jwt.verify(token, process.env.JWT_SECRET!);
 
