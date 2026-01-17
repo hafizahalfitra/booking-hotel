@@ -8,6 +8,8 @@ export default function Home() {
     // Menggunakan warna bg-[#FAF9F6] (Off-White/Alabaster) alih-alih putih murni
     // untuk mengurangi ketegangan mata dan memberikan kesan lebih 'warm' & premium.
     <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
+
+      // 1. Hero Section: Komponen banner utama di paling ata
       <Hero />
 
       <section className="relative max-w-screen-xl mx-auto px-6 py-32">
