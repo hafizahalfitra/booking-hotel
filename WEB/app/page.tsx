@@ -5,6 +5,7 @@ import Main from "@/components/main";
 export default function Home() {
   return (
     // Container Utama
+    // Menggunakan warna bg-[#FAF9F6] (Off-White/Alabaster) alih-alih putih murni
     <div className="bg-[#FAF9F6]"> {/* Warna background lebih bersih & premium */}
       <Hero />
 
