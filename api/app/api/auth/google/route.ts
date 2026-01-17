@@ -19,6 +19,10 @@ const corsHeaders: Record<string, string> = {
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
+/**
+ * Handler untuk Preflight Request (CORS)
+ * Browser mengirimkan request OPTIONS sebelum POST untuk mengecek izin akses.
+ */
 export function OPTIONS() {
   return new Response(null, {
     status: 200,
