@@ -208,6 +208,7 @@ export default function MyReservationPage() {
                                             Total Pembayaran
                                         </p>
                                         <p className="text-2xl font-bold text-blue-700">
+                                            // Format Mata Uang Rupiah
                                             Rp {trx.totalPrice.toLocaleString('id-ID')}
                                         </p>
                                     </div>
