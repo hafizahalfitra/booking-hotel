@@ -32,6 +32,7 @@ export default function Home() {
             Luxury Accommodations
           </span>
 
+          //  Main Heading
           <h1 className="text-4xl md:text-6xl font-light text-slate-900 tracking-tight leading-tight">
             Kamar & <span className="italic font-serif text-[#C2A895]">Harga Terbaik</span>
           </h1>
