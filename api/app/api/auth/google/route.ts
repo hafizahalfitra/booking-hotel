@@ -96,6 +96,7 @@ export async function POST(req: Request): Promise<Response> {
       audience: process.env.GOOGLE_CLIENT_ID,
     });
 
+    // Mengambil data user (payload) dari ticket hasil verifikasi
     const payload = ticket.getPayload() as UserPayload | undefined;
 
     if (!payload || !payload.email) {
