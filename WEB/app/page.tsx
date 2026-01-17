@@ -48,7 +48,7 @@ export default function Home() {
               Setiap sudut ruang dirancang dengan sentuhan modern yang estetis dan kenyamanan yang tak tertandingi.            
             </p>
 
-            
+            // Garis dekoratif kanan
             <div className="h-[1px] w-8 bg-slate-200"></div>
           </div>
         </div>
