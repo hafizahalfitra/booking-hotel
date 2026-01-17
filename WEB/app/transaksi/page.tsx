@@ -162,7 +162,7 @@ export default function MyReservationPage() {
                            // Garis Pemisah
                             <div className="h-px bg-gray-200 mb-6" />
 
-                            {/* Content */}
+                            // Detail Transaksi: Grid Layout
                             <div className="grid md:grid-cols-2 gap-8">
                                 {/* Left */}
                                 <div className="space-y-4">
