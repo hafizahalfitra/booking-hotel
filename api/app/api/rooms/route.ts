@@ -38,7 +38,7 @@ export async function GET() {
         });
 
         // Jika berhasil, kirim data kamar dengan status 200 OK
-        // 
+        // Return data dalam format JSON yang valid
         return NextResponse.json(rooms, { status: 200 });
 
     } catch (error) {
