@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+/**
+ * Handler untuk metode HTTP GET.
+ * Biasanya digunakan untuk mengecek apakah backend sudah "up" atau aktif.
+ */
 export async function GET() {
     const response = NextResponse.json({
         status: "OK",
