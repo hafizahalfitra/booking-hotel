@@ -27,6 +27,9 @@ export async function GET() {
             include: {
                 hotel: true
             },
+
+            // 3. Sorting: 
+            // 'asc' (ascending) memudahkan user menemukan harga paling kompetitif di urutan teratas.
             orderBy: {
                 // Urutkan berdasarkan harga termurah ke termahal
                 price: 'asc',
