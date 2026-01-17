@@ -16,6 +16,8 @@ export async function GET(req: NextRequest) {
          * .findMany() : Mengambil banyak record sekaligus
          */
         const hotels = await prisma.hotel.findMany({
+            // 'include': Melakukan Join/Eager Loading. 
+            // Mengambil semua data 'rooms' yang terelasi dengan hotel tersebut.
             include: {
                 rooms: true
             },
