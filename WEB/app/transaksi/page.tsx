@@ -144,6 +144,7 @@ export default function MyReservationPage() {
                                     </p>
                                 </div>
 
+                                // Badge Status Dinamis
                                 <span
                                     className={`px-4 py-1.5 rounded-full text-sm font-semibold w-fit
                                     ${trx.status === 'confirmed'
